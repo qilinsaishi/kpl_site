@@ -1,0 +1,354 @@
+﻿ <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>70电竞</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<!--[if lt IE 9]>
+<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="css/swiper.min.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="js/jquery-1.8.3.min.js" type="text/javascript" /></script>
+<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript" /></script>
+<script src="js/main.js" type="text/javascript" /></script>
+</head>
+
+<body>
+<div class="header">
+  <div class="container">
+    <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+    <div class="an"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+    <div class="nav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="youxijieshao.html">游戏介绍</a></li>
+        <li class="on"><a href="zhanduiliebiao.html">战队列表</a></li>
+        <li><a href="xuanshouliebiao.html">选手列表</a></li>
+        <li><a href="zixunliebiao.html">游戏资讯</a></li>
+        <li><a href="">游戏攻略</a></li>
+      </ul>
+    </div>  
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="head_h"></div>
+<div class="container">
+  <div class="dq_wz"><a href="">王者荣耀首页</a> > <a href="">战队列表</a> > 佛山GK</div>
+  <div class="zd_js">
+    <div class="row">
+      <div class="col-lg-2 col-4">
+        <div class="t_p"><img src="images/zd.jpg"></div>
+      </div>
+      <div class="col-lg-10 col-8">
+        <div class="w_z">
+          <div class="x_m">佛山GK</div>
+          <div class="j_s">全称：佛山GK电子竞技娱乐<br>
+          英文名：fourshanGK<br>
+          游戏战绩：8/95/3</div>
+          <div class="j_j">佛山GK战队，前身为GK战队，GK王者荣耀分部成立于201 6年9月，2017年春季进入KPL。2020年8月18日，GK战队落户佛山南海。2020年8月18日，佛山市南海区2020年产业推介暨重点项目签约、竣工及进驻活动在佛山安捷健康产业园举行。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="zd_cy">
+    <div class="sy_bt">
+      <div class="b_t">明星选手</div>
+      <div class="m_r">
+        <div class="bg"></div>
+        <a href="">MORE +</a>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="mx_tj">
+      <ul class="row">
+        <li class="col-lg-2 col-4">
+          <div class="n_r"><a href="">
+            <div class="t_p"><img src="images/a1.png"></div>
+            <div class="w_z">
+              <div class="x_m">Doinb</div>
+              <div class="j_s">位置：中单</div>
+              <div class="j_s">所属战队：FPX</div>
+            </div>
+          </a></div>
+        </li>
+        <li class="col-lg-2 col-4">
+          <div class="n_r"><a href="">
+            <div class="t_p"><img src="images/a1.png"></div>
+            <div class="w_z">
+              <div class="x_m">Doinb</div>
+              <div class="j_s">位置：中单</div>
+              <div class="j_s">所属战队：FPX</div>
+            </div>
+          </a></div>
+        </li>
+        <li class="col-lg-2 col-4">
+          <div class="n_r"><a href="">
+            <div class="t_p"><img src="images/a1.png"></div>
+            <div class="w_z">
+              <div class="x_m">Doinb</div>
+              <div class="j_s">位置：中单</div>
+              <div class="j_s">所属战队：FPX</div>
+            </div>
+          </a></div>
+        </li>
+        <li class="col-lg-2 col-4">
+          <div class="n_r"><a href="">
+            <div class="t_p"><img src="images/a1.png"></div>
+            <div class="w_z">
+              <div class="x_m">Doinb</div>
+              <div class="j_s">位置：中单</div>
+              <div class="j_s">所属战队：FPX</div>
+            </div>
+          </a></div>
+        </li>
+        <li class="col-lg-2 col-4">
+          <div class="n_r"><a href="">
+            <div class="t_p"><img src="images/a1.png"></div>
+            <div class="w_z">
+              <div class="x_m">Doinb</div>
+              <div class="j_s">位置：中单</div>
+              <div class="j_s">所属战队：FPX</div>
+            </div>
+          </a></div>
+        </li>
+        <li class="col-lg-2 col-4">
+          <div class="n_r"><a href="">
+            <div class="t_p"><img src="images/a1.png"></div>
+            <div class="w_z">
+              <div class="x_m">Doinb</div>
+              <div class="j_s">位置：中单</div>
+              <div class="j_s">所属战队：FPX</div>
+            </div>
+          </a></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="sy_zh">
+    <div class="row">
+      <div class="col-lg-6 col-12">
+        <div class="sy_bt">
+          <div class="b_t">战队相关资讯</div>
+          <div class="m_r">
+            <div class="bg"></div>
+            <a href="">MORE +</a>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="ny_nr">
+          <div class="rm_zx">
+            <ul>
+              <li>
+                <div class="s_j">01-03</div>
+                <a href="">[打野思路] 16.0玄策实战复盘教学</a>
+              </li>
+              <li>
+                <div class="s_j">01-07</div>
+                <a href="">TS暖阳FMVP英雄镜第一视角：世冠总决赛巅峰</a>
+              </li>
+              <li>
+                <div class="s_j">01-30</div>
+                <a href="">公爵自创玄策闪电鞭打法让你玄策不再迷茫</a>
+              </li>
+              <li>
+                <div class="s_j">02-04</div>
+                <a href="">8分钟掌握玄策18个操作技巧+8种自主练习技</a>
+              </li>
+              <li>
+                <div class="s_j">02-04</div>
+                <a href="">艾琳不再珍貴，入坑1270天的玩家告訴你，它才是珍寶！</a>
+              </li>
+              <li>
+                <div class="s_j">02-04</div>
+                <a href="">金牌百里玄策"光速爆头流”打野教学，6分钟1首殺</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-12">
+        <div class="sy_bt">
+          <div class="b_t">相关战队推荐</div>
+          <div class="m_r">
+            <div class="bg"></div>
+            <a href="">MORE +</a>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="ny_nr">
+          <div class="rm_zd">
+            <ul class="row">
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a1.jpg"></div>
+                  <div class="w_z">佛山GK</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a2.jpg"></div>
+                  <div class="w_z">西安WE</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a3.jpg"></div>
+                  <div class="w_z">KS.YTG</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a4.jpg"></div>
+                  <div class="w_z">TTG.XQ</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a5.jpg"></div>
+                  <div class="w_z">TSG</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a6.jpg"></div>
+                  <div class="w_z">EDG.Y</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a7.jpg"></div>
+                  <div class="w_z">FBP</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a8.jpg"></div>
+                  <div class="w_z">SNS</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a9.jpg"></div>
+                  <div class="w_z">AG超玩会</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a1.jpg"></div>
+                  <div class="w_z">佛山GK</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a2.jpg"></div>
+                  <div class="w_z">西安WE</div>
+                </a></div>
+              </li>
+              <li class="col-4">
+                <div class="n_r"><a href="">
+                  <div class="t_b"><img src="images/a3.jpg"></div>
+                  <div class="w_z">KS.YTG</div>
+                </a></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <div class="zd_tw">
+    <div class="sy_bt">
+      <div class="b_t">佛山GK最新资讯</div>
+      <div class="m_r">
+        <div class="bg"></div>
+        <a href="">MORE +</a>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="zx_nr">
+      <div class="row">
+        <div class="col-lg-7 col-12">
+          <div class="tw_lb">
+            <ul class="row">
+              <li class="col-4">
+                <div class="t_p"><a href=""><img src="images/tp1.jpg"></a></div>
+              </li>
+              <li class="col-4">
+                <div class="t_p"><a href=""><img src="images/tp2.jpg"></a></div>
+              </li>
+              <li class="col-4">
+                <div class="t_p"><a href=""><img src="images/tp3.jpg"></a></div>
+              </li>
+              <li class="col-4">
+                <div class="t_p"><a href=""><img src="images/tp4.jpg"></a></div>
+              </li>
+              <li class="col-4">
+                <div class="t_p"><a href=""><img src="images/tp5.jpg"></a></div>
+              </li>
+              <li class="col-4">
+                <div class="t_p"><a href=""><img src="images/tp6.jpg"></a></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-5 col-12">
+          <div class="xw_lb">
+            <ul>
+              <li>
+                <div class="s_j">01-03</div>
+                <a href="">[打野思路] 16.0玄策实战复盘教学</a>
+              </li>
+              <li>
+                <div class="s_j">01-07</div>
+                <a href="">TS暖阳FMVP英雄镜第一视角：世冠总决赛巅峰</a>
+              </li>
+              <li>
+                <div class="s_j">01-30</div>
+                <a href="">公爵自创玄策闪电鞭打法让你玄策不再迷茫</a>
+              </li>
+              <li>
+                <div class="s_j">02-04</div>
+                <a href="">8分钟掌握玄策18个操作技巧+8种自主练习技</a>
+              </li>
+              <li>
+                <div class="s_j">02-04</div>
+                <a href="">艾琳不再珍貴，入坑1270天的玩家告訴你，它才是珍寶！</a>
+              </li>
+              <li>
+                <div class="s_j">02-04</div>
+                <a href="">金牌百里玄策"光速爆头流”打野教学，6分钟1首殺</a>
+              </li>
+              <li>
+                <div class="s_j">02-04</div>
+                <a href="">8分钟掌握玄策18个操作技巧+8种自主练习技</a>
+              </li>
+              <li>
+                <div class="s_j">02-04</div>
+                <a href="">艾琳不再珍貴，入坑1270天的玩家告訴你，它才是珍寶！</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sy_yl">
+    <div class="sy_bt">
+      <div class="b_t">友情链结</div>
+      <div class="clear"></div>
+    </div>
+    <div class="lj_nr"><a href="" target="_blank">VSPN电视</a><a href="" target="_blank">斗鱼直播</a><a href="" target="_blank">王者人生</a><a href="" target="_blank">微信游戏</a></div>
+  </div>
+</div>
+<div class="banquan">
+  <div class="container">Copy@qulidianing.com</div>
+</div>
+<div class="fh_top"><img src="images/fh_top.png"></div>
+</body>
+</html>
