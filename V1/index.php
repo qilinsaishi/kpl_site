@@ -2,18 +2,17 @@
  <?php
  require_once "function/init.php";
  $data = [
-     //"matchList"=>["page"=>1,"page_size"=>9],
+     "slideImage"=>["dataType"=>"imageList","site_id"=>$config['site_id'],"flag"=>"index_slide_pic","page_size"=>20],
      //"totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo,team_history'],
      //"tournament"=>["page"=>1,"page_size"=>8],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
-     "links"=>["game"=>$config['game'],"page"=>1,"page_size"=>6],
+     "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
      //"totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>8,"source"=>"cpseo","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
      //"infoList"=>["dataType"=>"informationList","game"=>$config['game'],"page"=>1,"page_size"=>9,"type"=>"1,2,3,5"],
      //"straList"=>["dataType"=>"informationList","game"=>$config['game'],"page"=>1,"page_size"=>8,"type"=>"4"],
      "currentPage"=>["name"=>"index"]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
-
  ?>
 <html lang="zh-CN">
 <head>
@@ -24,29 +23,16 @@
 <meta name="format-detection" content="telephone=no">
 <title><?php echo $config['site_name'];?></title>
     <?php renderHeaderJsCss($config);?>
-    <!--[if lt IE 9]>
-
-<![endif]-->
-//
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="js/jquery-1.8.3.min.js" type="text/javascript" /></script>
-<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript" /></script>
-<script src="js/main.js" type="text/javascript" /></script>
 </head>
 
 <body>
 <div class="header">
   <div class="container">
-    <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+    <div class="logo"><a href="<?php echo $config['site_url'];?>"><img src="<?php echo $config['site_url'];?>/images/logo.png"></a></div>
     <div class="an"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
     <div class="nav">
       <ul>
-        <li class="on"><a href="index.html">首页</a></li>
-        <li><a href="youxijieshao.html">游戏介绍</a></li>
-        <li><a href="zhanduiliebiao.html">战队列表</a></li>
-        <li><a href="xuanshouliebiao.html">选手列表</a></li>
-        <li><a href="zixunliebiao.html">游戏资讯</a></li>
-        <li><a href="">游戏攻略</a></li>
+          <?php generateNav($config,"index");?>
       </ul>
     </div>  
     <div class="clear"></div>
@@ -55,11 +41,11 @@
 <div class="head_h"></div>
 <div class="swiper-container pc_ban">
   <div class="swiper-wrapper">
-    <div class="swiper-slide" style="background:url(images/ban1.jpg) no-repeat center / cover;"></div>
-    <div class="swiper-slide" style="background:url(images/ban1.jpg) no-repeat center / cover;"></div>
-    <div class="swiper-slide" style="background:url(images/ban1.jpg) no-repeat center / cover;"></div>
-    <div class="swiper-slide" style="background:url(images/ban1.jpg) no-repeat center / cover;"></div>
-    <div class="swiper-slide" style="background:url(images/ban1.jpg) no-repeat center / cover;"></div>
+      <?php
+      foreach($return["slideImage"]['data'] as $type => $pic)
+      {?>
+          <div class="swiper-slide" style="background:url(<?php echo $pic['logo'];?>) no-repeat center / cover;"></div>
+      <?php }?>
   </div>
   <div class="swiper-pagination"></div>
 </div>
@@ -71,7 +57,7 @@
           <div class="b_t">热门英雄</div>
           <div class="m_r">
             <div class="bg"></div>
-            <a href="">MORE +</a>
+            <a href="<?php echo $config['site_url'];?>/herolist/">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
@@ -529,7 +515,13 @@
       <div class="b_t">友情链结</div>
       <div class="clear"></div>
     </div>
-    <div class="lj_nr"><a href="" target="_blank">VSPN电视</a><a href="" target="_blank">斗鱼直播</a><a href="" target="_blank">王者人生</a><a href="" target="_blank">微信游戏</a></div>
+    <div class="lj_nr">
+        <?php
+        foreach($return['links']['data'] as $linksInfo)
+        {   ?>
+            <a title = "<?php echo $linksInfo['name'];?>" href="<?php echo $linksInfo['url'];?>" target="_blank"><?php echo $linksInfo['name'];?></a>
+        <?php }?>
+    </div>
   </div>
 </div>
 <div class="banquan">

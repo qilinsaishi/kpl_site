@@ -61,15 +61,15 @@ transition:all .5s;
 .header .nav ul li:hover a{color:#c5f752;}
 .header .nav ul li.on a{color:#c5f752;}
 @media (min-width:1025px) {
-.header .nav ul li{margin-left:60px;}
+.header .nav ul li{margin-left:30px;}
 .header .nav ul li a{font-size:20px;}
 }
 @media (min-width:1200px) {
-.header .nav ul li{margin-left:76px;}
+.header .nav ul li{margin-left:38px;}
 .header .nav ul li a{font-size:24px;}
 }
 @media (min-width:1500px) {
-.header .nav ul li{margin-left:100px;}
+.header .nav ul li{margin-left:50px;}
 .header .nav ul li a{font-size:30px;}
 }
 @media only screen and (max-width:1024px){

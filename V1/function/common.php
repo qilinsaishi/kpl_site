@@ -122,9 +122,9 @@
     function generateNav($config,$current = "index")
     {
         $navList = ['index'=>['url'=>"","name"=>"首页"],
-            'game'=>['url'=>"gameint/","name"=>$config['game_name']],
-            'team'=>['url'=>"teamlist/","name"=>$config['game_name']."战队"],
-            'player'=>['url'=>"playerlist/","name"=>$config['game_name']."队员"],
+            'game'=>['url'=>"gameint/","name"=>"游戏介绍"],
+            'team'=>['url'=>"teamlist/","name"=>"战队列表"],
+            'player'=>['url'=>"playerlist/","name"=>"选手列表"],
             'hero'=>['url'=>"herolist/","name"=>"英雄介绍"],
             'info'=>['url'=>"newslist/","name"=>"游戏资讯"],
             'stra'=>['url'=>"strategylist/","name"=>"游戏攻略"],
@@ -134,7 +134,7 @@
         {
             if($key == $current)
             {
-                echo '<li class="active"><a href="'.$config['site_url'].'/'.$value['url'].'">'.$value['name'].'</a></li>';
+                echo '<li class="on"><a href="'.$config['site_url'].'/'.$value['url'].'">'.$value['name'].'</a></li>';
             }
             else
             {
