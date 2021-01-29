@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $(".header .an").click(function(){
-	$(".nav").slideToggle();
+	$(".nav").toggleClass("on");
     $(this).toggleClass("n");
   });
   $(".fh_top").click(function(){
