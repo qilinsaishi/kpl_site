@@ -3,6 +3,7 @@
  require_once "function/init.php";
  $data = [
      "slideImage"=>["dataType"=>"imageList","site_id"=>$config['site_id'],"flag"=>"index_slide_pic","page_size"=>20],
+     "heroList"=>["dataType"=>"kplHeroList","page"=>1,"page_size"=>15,"rand"=>1,"cacheWith"=>"currentPage"],
      //"totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo,team_history'],
      //"tournament"=>["page"=>1,"page_size"=>8],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
@@ -64,72 +65,16 @@
         <div class="zh_nr">
           <div class="rm_yx">
             <ul class="row">
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
-                  <div class="w_z">马可波罗</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
-                  <div class="w_z">公孙离</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
-                  <div class="w_z">后裔</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
-                  <div class="w_z">孙尚香</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
-                  <div class="w_z">百里守约</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
-                  <div class="w_z">李元芳</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
-                  <div class="w_z">狄仁杰</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
-                  <div class="w_z">黄忠</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
-                  <div class="w_z">鲁班七号</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
-                  <div class="w_z">伽罗</div>
-                </a></div>
-              </li>
-              <li>
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
-                  <div class="w_z">蒙犽</div>
-                </a></div>
-              </li>
+                <?php
+                foreach($return["heroList"]['data'] as $type => $hero)
+                {?>
+                    <li>
+                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/herodetail/<?php echo $hero['hero_id'];?>">
+                                <div class="t_b"><img src="<?php echo $hero['logo'];?>"></div>
+                                <div class="w_z"><?php echo $hero['hero_name'];?></div>
+                            </a></div>
+                    </li>
+                <?php }?>
             </ul>
           </div>
         </div>

@@ -4,7 +4,6 @@
  $data = [
      //"matchList"=>["page"=>1,"page_size"=>9],
      //"totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo,team_history'],
-     //"tournament"=>["page"=>1,"page_size"=>8],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
      //"totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>8,"source"=>"cpseo","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
@@ -12,7 +11,9 @@
      //"straList"=>["dataType"=>"informationList","game"=>$config['game'],"page"=>1,"page_size"=>8,"type"=>"4"],
      "currentPage"=>["name"=>"index"]
  ];
- //$return = curl_post($config['api_get'],json_encode($data),1);
+ $return = curl_post($config['api_get'],json_encode($data),1);
+ print_R($return['heroList']);
+ die();
  ?>
 <html lang="zh-CN">
 <head>
@@ -32,7 +33,7 @@
     <div class="an"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
     <div class="nav">
       <ul>
-          <?php generateNav($config,"hero");?>
+          <?php generateNav($config,"info");?>
       </ul>
     </div>  
     <div class="clear"></div>
@@ -69,145 +70,145 @@
             <ul class="row">
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
@@ -215,145 +216,145 @@
             <ul class="row">
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
@@ -361,145 +362,145 @@
             <ul class="row">
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
@@ -507,145 +508,145 @@
             <ul class="row">
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
@@ -653,145 +654,145 @@
             <ul class="row">
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
@@ -799,145 +800,145 @@
             <ul class="row">
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
@@ -945,67 +946,67 @@
             <ul class="row">
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t1.jpg"></div>
                   <div class="w_z">马可波罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t2.jpg"></div>
                   <div class="w_z">公孙离</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t3.jpg"></div>
                   <div class="w_z">后裔</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t9.jpg"></div>
                   <div class="w_z">鲁班七号</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t10.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t10.jpg"></div>
                   <div class="w_z">伽罗</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t11.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t11.jpg"></div>
                   <div class="w_z">蒙犽</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t4.jpg"></div>
                   <div class="w_z">孙尚香</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t5.jpg"></div>
                   <div class="w_z">百里守约</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t6.jpg"></div>
                   <div class="w_z">李元芳</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t7.jpg"></div>
                   <div class="w_z">狄仁杰</div>
                 </a></div>
               </li>
               <li>
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/t8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/t8.jpg"></div>
                   <div class="w_z">黄忠</div>
                 </a></div>
               </li>
@@ -1040,91 +1041,91 @@
             <ul class="row">
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a1.jpg"></div>
                   <div class="w_z">佛山GK</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a2.jpg"></div>
                   <div class="w_z">西安WE</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a3.jpg"></div>
                   <div class="w_z">KS.YTG</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a4.jpg"></div>
                   <div class="w_z">TTG.XQ</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a5.jpg"></div>
                   <div class="w_z">TSG</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a6.jpg"></div>
                   <div class="w_z">EDG.Y</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a7.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a7.jpg"></div>
                   <div class="w_z">FBP</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a8.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a8.jpg"></div>
                   <div class="w_z">SNS</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a9.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a9.jpg"></div>
                   <div class="w_z">AG超玩会</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a1.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a1.jpg"></div>
                   <div class="w_z">佛山GK</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a2.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a2.jpg"></div>
                   <div class="w_z">西安WE</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a3.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a3.jpg"></div>
                   <div class="w_z">KS.YTG</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a4.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a4.jpg"></div>
                   <div class="w_z">TTG.XQ</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a5.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a5.jpg"></div>
                   <div class="w_z">TSG</div>
                 </a></div>
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a6.jpg"></div>
+                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a6.jpg"></div>
                   <div class="w_z">EDG.Y</div>
                 </a></div>
               </li>
@@ -1146,7 +1147,7 @@
             <ul class="row">
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_p"><img src="images/a1.png"></div>
+                  <div class="t_p"><img src="<?php echo $config['site_url'];?>/images/a1.png"></div>
                   <div class="w_z">
                     <div class="x_m">Doinb</div>
                     <div class="j_s">位置：中单</div>
@@ -1156,7 +1157,7 @@
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_p"><img src="images/a2.png"></div>
+                  <div class="t_p"><img src="<?php echo $config['site_url'];?>/images/a2.png"></div>
                   <div class="w_z">
                     <div class="x_m">huanfeng</div>
                     <div class="j_s">位置：中单</div>
@@ -1166,7 +1167,7 @@
               </li>
               <li class="col-4">
                 <div class="n_r"><a href="">
-                  <div class="t_p"><img src="images/a3.png"></div>
+                  <div class="t_p"><img src="<?php echo $config['site_url'];?>/images/a3.png"></div>
                   <div class="w_z">
                     <div class="x_m">Rookie</div>
                     <div class="j_s">位置：ADC</div>
@@ -1395,6 +1396,6 @@
 <div class="banquan">
   <div class="container">Copy@qulidianing.com</div>
 </div>
-<div class="fh_top"><img src="images/fh_top.png"></div>
+<div class="fh_top"><img src="<?php echo $config['site_url'];?>/images/fh_top.png"></div>
 </body>
 </html>
