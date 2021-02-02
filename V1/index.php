@@ -4,15 +4,18 @@
  $data = [
      "slideImage"=>["dataType"=>"imageList","site_id"=>$config['site_id'],"flag"=>"index_slide_pic","page_size"=>20],
      "heroList"=>["dataType"=>"kplHeroList","page"=>1,"page_size"=>15,"rand"=>1,"cacheWith"=>"currentPage"],
-     //"totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo,team_history'],
-     //"tournament"=>["page"=>1,"page_size"=>8],
+     "totalTeamList"=>["page"=>1,"page_size"=>15,"game"=>$config['game'],"source"=>"cpseo","rand"=>1,"fields"=>'team_id,team_name,logo',"cacheWith"=>"currentPage"],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
-     //"totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>8,"source"=>"cpseo","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
-     //"infoList"=>["dataType"=>"informationList","game"=>$config['game'],"page"=>1,"page_size"=>9,"type"=>"1,2,3,5"],
-     //"straList"=>["dataType"=>"informationList","game"=>$config['game'],"page"=>1,"page_size"=>8,"type"=>"4"],
-     "currentPage"=>["name"=>"index"]
+     "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>5,"source"=>"cpseo","fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage"],
+     "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4],
+     "currentPage"=>["name"=>"index","site_id"=>$config['site_id']]
  ];
+ foreach($config['information_type_map'] as $type => $mapInfo)
+ {
+
+     $data["informationList_".$type] =  ["dataType"=>"informationList","page"=>1,"page_size"=>6,"type"=>$type];
+ }
  $return = curl_post($config['api_get'],json_encode($data),1);
  ?>
 <html lang="zh-CN">
@@ -84,103 +87,25 @@
           <div class="b_t">热门战队</div>
           <div class="m_r">
             <div class="bg"></div>
-            <a href="">MORE +</a>
+            <a href="<?php echo $config['site_url'];?>/teamlist/">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
         <div class="zh_nr">
           <div class="rm_zd">
             <ul class="row">
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a1.jpg"></div>
-                  <div class="w_z">佛山GK</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a2.jpg"></div>
-                  <div class="w_z">西安WE</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a3.jpg"></div>
-                  <div class="w_z">KS.YTG</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a4.jpg"></div>
-                  <div class="w_z">TTG.XQ</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a5.jpg"></div>
-                  <div class="w_z">TSG</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a6.jpg"></div>
-                  <div class="w_z">EDG.Y</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a7.jpg"></div>
-                  <div class="w_z">FBP</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a8.jpg"></div>
-                  <div class="w_z">SNS</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a9.jpg"></div>
-                  <div class="w_z">AG超玩会</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a1.jpg"></div>
-                  <div class="w_z">佛山GK</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a2.jpg"></div>
-                  <div class="w_z">西安WE</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a3.jpg"></div>
-                  <div class="w_z">KS.YTG</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a4.jpg"></div>
-                  <div class="w_z">TTG.XQ</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a5.jpg"></div>
-                  <div class="w_z">TSG</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a6.jpg"></div>
-                  <div class="w_z">EDG.Y</div>
-                </a></div>
-              </li>
+                <?php
+                foreach($return["totalTeamList"]['data'] as $type => $team)
+                {?>
+                    <li class="col-4">
+                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/teamdetail/<?php echo $team['team_id'];?>">
+                                <div class="t_b"><img src="<?php echo $team['logo'];?>"></div>
+                                <div class="w_z"><?php echo $team['team_name'];?></div>
+                            </a></div>
+                    </li>
+
+                <?php }?>
+
             </ul>
           </div>
         </div>
@@ -192,62 +117,26 @@
       <div class="b_t">明星选手</div>
       <div class="m_r">
         <div class="bg"></div>
-        <a href="">MORE +</a>
+        <a href="<?php echo $config['site_url'];?>/playerlist/">MORE +</a>
       </div>
       <div class="clear"></div>
     </div>
     <div class="mx_tj">
       <ul class="row">
-        <li>
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="images/a1.png"></div>
-            <div class="w_z">
-              <div class="x_m">Doinb</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：FPX</div>
-            </div>
-          </a></div>
-        </li>
-        <li>
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="images/a2.png"></div>
-            <div class="w_z">
-              <div class="x_m">huanfeng</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：SN</div>
-            </div>
-          </a></div>
-        </li>
-        <li>
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="images/a3.png"></div>
-            <div class="w_z">
-              <div class="x_m">Rookie</div>
-              <div class="j_s">位置：ADC</div>
-              <div class="j_s">所属战队：IG</div>
-            </div>
-          </a></div>
-        </li>
-        <li>
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="images/a4.png"></div>
-            <div class="w_z">
-              <div class="x_m">TheShy</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：IG</div>
-            </div>
-          </a></div>
-        </li>
-        <li>
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="images/a5.png"></div>
-            <div class="w_z">
-              <div class="x_m">梦客</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：GK</div>
-            </div>
-          </a></div>
-        </li>
+          <?php
+          foreach($return["totalPlayerList"]['data'] as $type => $player)
+          {?>
+              <li>
+                  <div class="n_r"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player'];?>">
+                          <div class="t_p"><img src="<?php echo $player['logo'];?>"></div>
+                          <div class="w_z">
+                              <div class="x_m"><?php echo $player['player_name'];?></div>
+                              <div class="j_s">位置：<?php echo $player['position'];?></div>
+                              <div class="j_s">所属战队：<?php echo $player['team_info']['team_name']??"未知";?></div>
+                          </div>
+                      </a></div>
+              </li>
+          <?php }?>
       </ul>
     </div>
   </div>
@@ -258,7 +147,7 @@
           <div class="b_t">最新资讯</div>
           <div class="m_r">
             <div class="bg"></div>
-            <a href="">MORE +</a>
+            <a href="<?php echo $config['site_url'];?>/newslist/1">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
@@ -266,133 +155,29 @@
           <div class="zx_zx">
             <div class="hd">
               <ul class="row">
-                <li class="col-3"><span>赛事战报</span></li>
-                <li class="col-3"><span>竞游八卦</span></li>
-                <li class="col-3"><span>游戏攻略</span></li>
-                <li class="col-3"><span>电竞选手</span></li>
+                  <?php  foreach($config['information_type_map'] as $type => $mapInfo){?>
+                  <li class="col-3"><span><?php echo $mapInfo['type_name']?></span></li>
+                  <?php }?>
               </ul>
             </div>
             <div class="bd">
-              <div class="n_r">
-                <div class="d_b"><a href="">女枪为什么叫MF？具体是什么原因？</a></div>
-                <ul>
-                  <li>
-                    <span>战报</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>战报</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>战报</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>战报</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>战报</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
+                <?php  foreach($config['information_type_map'] as $type => $mapInfo){?>
+                    <div class="n_r">
+                        <?php $informationList = $return["informationList_".$type]['data'];
+                                $i = 1;
+                                foreach($informationList as $key => $info)
+                        { if($i==1){?>
+                            <div class="d_b"><a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>">女枪为什么叫MF？具体是什么原因？</a></div><ul>
+                        <?php }else{?>
+                            <li>
+                            <span><?php echo $mapInfo['sub_name'];?></span>
+                            <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                            <a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
+                        </li><?php }$i++;}?>
+
                 </ul>
               </div>
-              <div class="n_r">
-                <div class="d_b"><a href="">女枪为什么叫MF？具体是什么原因？</a></div>
-                <ul>
-                  <li>
-                    <span>八卦</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>八卦</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>八卦</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>八卦</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>八卦</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="n_r">
-                <div class="d_b"><a href="">女枪为什么叫MF？具体是什么原因？</a></div>
-                <ul>
-                  <li>
-                    <span>攻略</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>攻略</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>攻略</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>攻略</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>攻略</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="n_r">
-                <div class="d_b"><a href="">女枪为什么叫MF？具体是什么原因？</a></div>
-                <ul>
-                  <li>
-                    <span>电竞</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>电竞</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>电竞</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>电竞</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                  <li>
-                    <span>电竞</span>
-                    <div class="s_j">01-19</div>
-                    <a href="">皇族老板是谁？皇族老板跟RYL有什么关系？</a>
-                  </li>
-                </ul>
-              </div>
+                <?php }?>
             </div>
           </div>
         </div>
@@ -402,53 +187,20 @@
           <div class="b_t">游戏攻略</div>
           <div class="m_r">
             <div class="bg"></div>
-            <a href="">MORE +</a>
+              <a href="<?php echo $config['site_url'];?>/strategylist/1">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
         <div class="zh_nr">
           <div class="yx_gl">
             <ul>
-              <li>
-                <span>视频</span>
-                <div class="s_j">01-03</div>
-                <a href="">[打野思路] 16.0玄策实战复盘教学</a>
-              </li>
-              <li>
-                <span>视频</span>
-                <div class="s_j">01-07</div>
-                <a href="">TS暖阳FMVP英雄镜第一视角：世冠总决赛巅峰</a>
-              </li>
-              <li>
-                <span>视频</span>
-                <div class="s_j">01-30</div>
-                <a href="">公爵自创玄策闪电鞭打法让你玄策不再迷茫</a>
-              </li>
-              <li>
-                <span>视频</span>
-                <div class="s_j">02-04</div>
-                <a href="">8分钟掌握玄策18个操作技巧+8种自主练习技</a>
-              </li>
-              <li>
-                <span>视频</span>
-                <div class="s_j">02-04</div>
-                <a href="">艾琳不再珍貴，入坑1270天的玩家告訴你，它才是珍寶！</a>
-              </li>
-              <li>
-                <span>视频</span>
-                <div class="s_j">02-04</div>
-                <a href="">金牌百里玄策"光速爆头流”打野教学，6分钟1首殺</a>
-              </li>
-              <li>
-                <span>视频</span>
-                <div class="s_j">02-15</div>
-                <a href="">TS暖阳FMVP英雄镜第一视角: 世冠总决赛巅峰</a>
-              </li>
-              <li>
-                <span>视频</span>
-                <div class="s_j">02-04</div>
-                <a href="">8分钟掌握玄策18个操作技巧+8种自主练习技</a>
-              </li>
+                <?php  foreach($return['straList']['data'] as $type => $info){?>
+                    <li>
+                        <span>视频</span>
+                        <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                        <a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
+                    </li>
+                <?php }?>
             </ul>
           </div>
         </div>
