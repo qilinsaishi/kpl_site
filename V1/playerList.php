@@ -57,7 +57,7 @@
           foreach($return['playerList']['data'] as $playerInfo)
           {   ?>
               <li>
-                  <div class="t_p"><a href="<?php echo $config['site_url']; ?>/teamdetail/<?php echo $playerInfo['player_id'];?>" title="<?php echo $playerInfo['player_name'];?>">
+                  <div class="t_p"><a href="<?php echo $config['site_url']; ?>/playerdetail/<?php echo $playerInfo['player_id'];?>" title="<?php echo $playerInfo['player_name'];?>">
                               <?php if(isset($return['defaultConfig']['data']['default_player_img'])){?>
                                   <img lazyload="true" data-original="<?php echo $return['defaultConfig']['data']['default_player_img']['value'];?>" src="<?php echo $playerInfo['logo'];?>" title="<?php echo $playerInfo['player_name'];?>" />
                               <?php }else{?>
