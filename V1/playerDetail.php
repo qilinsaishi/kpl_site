@@ -27,6 +27,10 @@
  {
      $connectedInformationList = [];
  }
+ $data3 = [
+     "teamMateList"=>["dataType"=>"totalPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>"cpseo","fields"=>'player_id,player_name,logo,position',"team_id"=>$return['totalPlayerInfo']['data']['team_id']],
+ ];
+ $return3 = curl_post($config['api_get'],json_encode($data3),1);
  ?>
 <head>
 <meta charset="UTF-8" />
@@ -34,7 +38,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
-    <meta name="description" content="<?php echo $return['totalTeamInfo']['data']['team_name'];?><?php echo $return['totalPlayerInfo']['data']['player_name'];?>，真名为<?php echo $return['totalPlayerInfo']['data']['player_name'];?>，<?php echo $return['totalPlayerInfo']['data']['country'];?>人，<?php if(!in_array($return['totalPlayerInfo']['data']['position'],["","?"])){echo "在".$return['totalTeamInfo']['data']['team_name']."中长期打".$return['totalPlayerInfo']['data']['position'].".位置，";}?><?php if(count($return['totalPlayerInfo']['data']['playerList'])>0){echo "与".implode(",",array_column($return['totalPlayerInfo']['data']['playerList'],"player_name"))."为队友";}?>。">
+    <meta name="description" content="<?php echo $return['totalPlayerInfo']['data']['player_name'];?><?php echo $return['totalPlayerInfo']['data']['player_name'];?>，真名为<?php echo $return['totalPlayerInfo']['data']['player_name'];?>，<?php echo $return['totalPlayerInfo']['data']['country'];?>人，<?php if(!in_array($return['totalPlayerInfo']['data']['position'],["","?"])){echo "在".$return['totalTeamInfo']['data']['team_name']."中长期打".$return['totalPlayerInfo']['data']['position'].".位置，";}?><?php if(count($return['totalPlayerInfo']['data']['playerList'])>0){echo "与".implode(",",array_column($return['totalPlayerInfo']['data']['playerList'],"player_name"))."为队友";}?>。">
     <meta name=”Keywords” Content=”<?php echo $return['totalPlayerInfo']['data']['player_name'];?>个人资料,<?php echo $return['totalTeamInfo']['data']['team_name'];?><?php if(!in_array($return['totalPlayerInfo']['data']['position'],["","?"])){echo $return['totalPlayerInfo']['data']['position'];}?><?php echo $return['totalPlayerInfo']['data']['player_name'];?>信息简介">
     <title><?php echo $return['totalPlayerInfo']['data']['player_name'];?>个人资料_<?php echo $return['totalPlayerInfo']['data']['teamInfo']['team_name'];?><?php if(!in_array($return['totalPlayerInfo']['data']['position'],["","?"])){echo $return['totalPlayerInfo']['data']['position'];}?><?php echo $return['totalPlayerInfo']['data']['player_name'];?>信息简介-<?php echo $config['site_name']?></title>
     <?php renderHeaderJsCss($config);?>
@@ -76,74 +80,23 @@
   <div class="zd_cy">
     <div class="sy_bt">
       <div class="b_t">同队成员介绍</div>
-      <div class="m_r">
-        <div class="bg"></div>
-        <a href="">MORE +</a>
-      </div>
       <div class="clear"></div>
     </div>
     <div class="mx_tj">
       <ul class="row">
-        <li class="col-lg-2 col-4">
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="<?php echo $config['site_url'];?>/images/a1.png"></div>
-            <div class="w_z">
-              <div class="x_m">Doinb</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：FPX</div>
-            </div>
-          </a></div>
-        </li>
-        <li class="col-lg-2 col-4">
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="<?php echo $config['site_url'];?>/images/a1.png"></div>
-            <div class="w_z">
-              <div class="x_m">Doinb</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：FPX</div>
-            </div>
-          </a></div>
-        </li>
-        <li class="col-lg-2 col-4">
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="<?php echo $config['site_url'];?>/images/a1.png"></div>
-            <div class="w_z">
-              <div class="x_m">Doinb</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：FPX</div>
-            </div>
-          </a></div>
-        </li>
-        <li class="col-lg-2 col-4">
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="<?php echo $config['site_url'];?>/images/a1.png"></div>
-            <div class="w_z">
-              <div class="x_m">Doinb</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：FPX</div>
-            </div>
-          </a></div>
-        </li>
-        <li class="col-lg-2 col-4">
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="<?php echo $config['site_url'];?>/images/a1.png"></div>
-            <div class="w_z">
-              <div class="x_m">Doinb</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：FPX</div>
-            </div>
-          </a></div>
-        </li>
-        <li class="col-lg-2 col-4">
-          <div class="n_r"><a href="">
-            <div class="t_p"><img src="<?php echo $config['site_url'];?>/images/a1.png"></div>
-            <div class="w_z">
-              <div class="x_m">Doinb</div>
-              <div class="j_s">位置：中单</div>
-              <div class="j_s">所属战队：FPX</div>
-            </div>
-          </a></div>
-        </li>
+          <?php
+          foreach($return3["teamMateList"]['data'] as $type => $player)
+          {?>
+              <li class="col-lg-2 col-4">
+                  <div class="n_r"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player_id'];?>">
+                          <div class="t_p"><img src="<?php echo $player['logo'];?>"></div>
+                          <div class="w_z">
+                              <div class="x_m"><?php echo $player['player_name'];?></div>
+                              <div class="j_s">位置：<?php echo $player['position'];?></div>
+                          </div>
+                      </a></div>
+              </li>
+          <?php }?>
       </ul>
     </div>
   </div>
@@ -157,7 +110,6 @@
           <?php
           if(count($connectedInformationList)>0)
           {
-              $i = 1;
               foreach($connectedInformationList as $key => $value) {?>
                       <li class="col-lg-6 col-12">
                           <div class="n_r">
