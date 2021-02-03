@@ -144,6 +144,6 @@
 <div class="banquan">
     <?php renderCertification();?>
 </div>
-<div class="fh_top"><img src="images/fh_top.png"></div>
+<div class="fh_top"><img src="<?php echo $config['site_url'];?>/images/fh_top.png"></div>
 </body>
 </html>

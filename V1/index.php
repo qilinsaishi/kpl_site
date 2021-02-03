@@ -223,7 +223,7 @@
 <div class="banquan">
   <?php renderCertification();?>
 </div>
-<div class="fh_top"><img src="images/fh_top.png"></div>
+<div class="fh_top"><img src="<?php echo $config['site_url'];?>/images/fh_top.png"></div>
 <script type="text/javascript" src="js/swiper.min.js"></script> 
 <script type="text/javascript">
   var galleryTop = new Swiper('.pc_ban', {

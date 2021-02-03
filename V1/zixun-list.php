@@ -2,7 +2,7 @@
 <html lang="zh-CN">
  <?php
  require_once "function/init.php";
- $info['page']['page_size'] = 18;
+ $info['page']['page_size'] = 10;
  $info['type'] = $_GET['type']??"info";
  $page = $_GET['page']??1;
  if($page==''){
@@ -11,11 +11,11 @@
  $zxtype=($info['type']!="info")?"/strategylist":"/newslist";
  $data = [
      //"matchList"=>["page"=>1,"page_size"=>9],
-    // "totalTeamList"=>["page"=>1,"page_size"=>6,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
+     "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
     // "tournament"=>["page"=>1,"page_size"=>8],
      //"defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
-     //"links"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-    // "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>9,"source"=>"cpseo","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
+     "links"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
+     "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>"cpseo","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
      "informationList"=>["game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>$info['type']=="info"?"1,2,3,5":"4","fields"=>"*"],
      "currentPage"=>["name"=>"infoList","type"=>$zxtype,"page"=>$page,"page_size"=>$info['page']['page_size'],"site_id"=>$config['site_id']]
  ];
@@ -29,171 +29,59 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
-<title>70电竞</title>
-<link rel="stylesheet" type="text/css" href="<?php echo $config['site_url'];?>/css/bootstrap.min.css" />
-<!--[if lt IE 9]>
-<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-<link rel="stylesheet" href="<?php echo $config['site_url'];?>/css/swiper.min.css" type="text/css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $config['site_url'];?>/css/style.css" />
-<script src="<?php echo $config['site_url'];?>/js/jquery-1.8.3.min.js" type="text/javascript" /></script>
-<script src="<?php echo $config['site_url'];?>/js/jquery.SuperSlide.2.1.1.js" type="text/javascript" /></script>
-<script src="<?php echo $config['site_url'];?>/js/main.js" type="text/javascript" /></script>
+    <?php if($info['type']=="info"){?>
+        <meta name="description" content="<?php echo $config['site_name'];?>提供<?php echo $config['game_name'];?>最新<?php if($info['type']=="info"){echo "资讯";}else{echo "攻略";}?>，了解<?php echo $config['game_name'];?>电子竞技头条<?php if($info['type']=="info"){echo "资讯";}else{echo "攻略";}?>，尽在<?php echo $config['site_name'];?>。">
+    <?php }else{?>
+        <meta name="description" content="<?php echo $config['site_name'];?>提供<?php echo $config['game_name'];?>游戏攻略，众多大神玩家为您介绍最新版本下<?php echo $config['game_name'];?>新玩法。">
+    <?php }?>
+    <meta name=”Keywords” Content=”<?php echo $config['game_name'];?>最新<?php if($info['type']=="info"){echo "资讯";}else{echo "攻略";}?>,<?php echo $config['game_name'];?>电竞<?php if($info['type']=="info"){echo "资讯";}else{echo "攻略";}?>″>
+    <title><?php echo $config['game_name'];?>最新<?php if($info['type']=="info"){echo "资讯";}else{echo "攻略";}?>_<?php echo $config['game_name'];?>电竞头条-<?php echo $config['site_name'];?></title>
+    <?php renderHeaderJsCss($config);?>
 </head>
 
 <body>
 <div class="header">
-  <div class="container">
-    <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
-    <div class="an"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
-    <div class="nav">
-      <ul>
-          <?php generateNav($config,"hero");?>
-      </ul>
-    </div>  
-    <div class="clear"></div>
-  </div>
+    <div class="container">
+        <div class="logo"><a href="<?php echo $config['site_url'];?>"><img src="<?php echo $config['site_url'];?>/images/logo.png"></a></div>
+        <div class="an"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+        <div class="nav">
+            <ul>
+                <?php
+                $type = $info['type']=="info" ?"info":"stra";
+                generateNav($config, $type);
+                ?>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>
 <div class="head_h"></div>
 <div class="container">
-  <div class="dq_wz"><a href="">王者荣耀首页</a> > 游戏资讯</div>
+  <div class="dq_wz"><a href="<?php echo $config['site_url'];?>"><?php echo $config['game_name'];?>首页</a> > <a href="<?php echo $config['site_url']; ?><?php echo ($info['type']!="info")?"/strategylist/":"/newslist/";?>"><?php echo $config['game_name'];?><?php echo ($info['type']!="info")?"游戏攻略":"游戏资讯";?></a></div>
   <div class="sy_zh">
     <div class="row">
       <div class="col-lg-8 col-12">
         <div class="zx_nr">
           <div class="zx_lb">
             <ul>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw1.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw2.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw3.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw4.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw5.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw1.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw2.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw3.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw4.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
-              <li class="row">
-                <div class="col-lg-2 col-5">
-                  <div class="t_p"><a href="zixunxiangqing.html"><img src="images/xw5.jpg"></a></div>
-                </div>
-                <div class="col-lg-10 col-7">
-                  <div class="w_z">
-                    <h3><a href="zixunxiangqing.html">TGA王者荣耀女子赛线上积分赛打响!分组情况、整体赛程了解一下</a></h3>
-                    <p>即使最后一场比赛3-0获胜，积分最高为7，净胜分最高为0，也无法超越GK，所以GK锁定西部最后一个季后赛名额!恭喜GK</p>
-                    <a href="zixunxiangqing.html" class="m_r">read more +</a>
-                  </div>
-                </div>
-              </li>
+                <?php foreach($return['informationList']['data'] as $key => $value) {?>
+                    <li class="row">
+                        <div class="col-lg-2 col-5">
+                            <div class="t_p"><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $info['id'];?>"><img src="<?php echo $value['logo'];?>"></a></div>
+                        </div>
+                        <div class="col-lg-10 col-7">
+                            <div class="w_z">
+                                <h3><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></h3>
+                                <p><?php echo $value['content']; ?></p>
+                                <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>" class="m_r">read more +</a>
+                            </div>
+                        </div>
+                    </li>
+                <?php }?>
             </ul>
           </div>
           <div class="page">
-            <a href=""><</a>
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="">4</a>
-            <a href="">5</a>
-            <a href="">></a>
+              <?php render_page_pagination($info['page']['total_count'],$info['page']['page_size'],$page,$zxtype); ?>
           </div>
         </div>
       </div>
@@ -202,85 +90,23 @@
           <div class="b_t">热门战队</div>
           <div class="m_r">
             <div class="bg"></div>
-            <a href="">MORE +</a>
+              <a href="<?php echo $config['site_url'];?>/teamlist/">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
         <div class="zy_nr m_b">
           <div class="rm_zd">
             <ul class="row">
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a1.jpg"></div>
-                  <div class="w_z">佛山GK</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a2.jpg"></div>
-                  <div class="w_z">西安WE</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a3.jpg"></div>
-                  <div class="w_z">KS.YTG</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a4.jpg"></div>
-                  <div class="w_z">TTG.XQ</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a5.jpg"></div>
-                  <div class="w_z">TSG</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a6.jpg"></div>
-                  <div class="w_z">EDG.Y</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a7.jpg"></div>
-                  <div class="w_z">FBP</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a8.jpg"></div>
-                  <div class="w_z">SNS</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a9.jpg"></div>
-                  <div class="w_z">AG超玩会</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a1.jpg"></div>
-                  <div class="w_z">佛山GK</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a2.jpg"></div>
-                  <div class="w_z">西安WE</div>
-                </a></div>
-              </li>
-              <li class="col-6">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="images/a3.jpg"></div>
-                  <div class="w_z">KS.YTG</div>
-                </a></div>
-              </li>
+                <?php
+                foreach($return["totalTeamList"]['data'] as $type => $team)
+                {?>
+                    <li class="col-6">
+                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/teamdetail/<?php echo $team['team_id'];?>">
+                                <div class="t_b"><img src="<?php echo $team['logo'];?>"></div>
+                                <div class="w_z"><?php echo $team['team_name'];?></div>
+                            </a></div>
+                    </li>
+                <?php }?>
             </ul>
           </div>
         </div>
@@ -288,49 +114,23 @@
           <div class="b_t">热门选手</div>
           <div class="m_r">
             <div class="bg"></div>
-            <a href="">MORE +</a>
+              <a href="<?php echo $config['site_url'];?>/playerlist/">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
         <div class="zy_nr">
           <div class="rm_xs">
             <ul class="row">
-              <li class="col-4">
-                <div class="t_p"><a href="">
-                  <img src="images/t1.png">
-                  <div class="w_z">名字</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="t_p"><a href="">
-                  <img src="images/t2.png">
-                  <div class="w_z">名字</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="t_p"><a href="">
-                  <img src="images/t3.png">
-                  <div class="w_z">名字</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="t_p"><a href="">
-                  <img src="images/t4.png">
-                  <div class="w_z">名字</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="t_p"><a href="">
-                  <img src="images/t5.png">
-                  <div class="w_z">名字</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="t_p"><a href="">
-                  <img src="images/t6.png">
-                  <div class="w_z">名字</div>
-                </a></div>
-              </li>
+                <?php
+                foreach($return["totalPlayerList"]['data'] as $type => $player)
+                {?>
+                    <li class="col-4">
+                        <div class="t_p"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player_id'];?>">
+                                <img src="<?php echo $player['logo'];?>">
+                                <div class="w_z"><?php echo $player['player_name'];?></div>
+                            </a></div>
+                    </li>
+                <?php }?>
             </ul>
           </div>
         </div>
@@ -342,12 +142,17 @@
       <div class="b_t">友情链接</div>
       <div class="clear"></div>
     </div>
-    <div class="lj_nr"><a href="" target="_blank">VSPN电视</a><a href="" target="_blank">斗鱼直播</a><a href="" target="_blank">王者人生</a><a href="" target="_blank">微信游戏</a></div>
+    <div class="lj_nr">
+        <?php
+        foreach($return['links']['data'] as $linksInfo)
+        {   ?>
+            <a title = "<?php echo $linksInfo['name'];?>" href="<?php echo $linksInfo['url'];?>" target="_blank"><?php echo $linksInfo['name'];?></a>
+        <?php }?>    </div>
   </div>
 </div>
 <div class="banquan">
   <?php renderCertification();?>
 </div>
-<div class="fh_top"><img src="images/fh_top.png"></div>
+<div class="fh_top"><img src="<?php echo $config['site_url'];?>/images/fh_top.png"></div>
 </body>
 </html>
