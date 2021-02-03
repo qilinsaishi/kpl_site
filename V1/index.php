@@ -104,9 +104,7 @@
                                 <div class="w_z"><?php echo $team['team_name'];?></div>
                             </a></div>
                     </li>
-
                 <?php }?>
-
             </ul>
           </div>
         </div>

@@ -125,7 +125,6 @@
                                 <div class="w_z"><?php echo $team['team_name'];?></div>
                             </a></div>
                     </li>
-
                 <?php }?>
             </ul>
           </div>
@@ -136,7 +135,7 @@
           <div class="b_t">明星选手</div>
           <div class="m_r">
             <div class="bg"></div>
-            <a href="">MORE +</a>
+              <a href="<?php echo $config['site_url'];?>/playerList/">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
@@ -170,7 +169,7 @@
           <div class="b_t">最新资讯</div>
           <div class="m_r">
             <div class="bg"></div>
-            <a href="">MORE +</a>
+              <a href="<?php echo $config['site_url'];?>/newsList/1">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
@@ -240,7 +239,8 @@
         foreach($return['links']['data'] as $linksInfo)
         {   ?>
             <a title = "<?php echo $linksInfo['name'];?>" href="<?php echo $linksInfo['url'];?>" target="_blank"><?php echo $linksInfo['name'];?></a>
-        <?php }?>    </div>
+        <?php }?>
+    </div>
   </div>
 </div>
 <div class="banquan">
