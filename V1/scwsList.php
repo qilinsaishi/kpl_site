@@ -2,7 +2,8 @@
 <html lang="zh-CN">
  <?php
  require_once "function/init.php";
- $info['page']['page_size'] = 10;
+ $ids = $_GET['ids']??"666";
+ $info['page']['page_size'] = 18;
  $info['type'] = $_GET['type']??"info";
  $page = $_GET['page']??1;
  if($page==''){
@@ -10,10 +11,12 @@
  }
  $zxtype=($info['type']!="info")?"/strategylist":"/newslist";
  $data = [
+     "scwsKeyword"=>[$ids],
+     "informationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],/*"type"=>$info['type']=="info"?"1,2,3,5":"4",*/"fields"=>"*"],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
      "links"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>"cpseo","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
-     "informationList"=>["game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>$info['type']=="info"?"1,2,3,5":"4","fields"=>"*"],
+     //"informationList"=>["game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>$info['type']=="info"?"1,2,3,5":"4","fields"=>"*"],
      "currentPage"=>["name"=>"infoList","type"=>$zxtype,"page"=>$page,"page_size"=>$info['page']['page_size'],"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
@@ -54,7 +57,7 @@
 </div>
 <div class="head_h"></div>
 <div class="container">
-  <div class="dq_wz"><a href="<?php echo $config['site_url'];?>"><?php echo $config['game_name'];?>首页</a> > <a href="<?php echo $config['site_url']; ?><?php echo ($info['type']!="info")?"/strategylist/":"/newslist/";?>"><?php echo $config['game_name'];?><?php echo ($info['type']!="info")?"游戏攻略":"游戏资讯";?></a></div>
+  <div class="dq_wz"><a href="<?php echo $config['site_url'];?>"><?php echo $config['game_name'];?>首页</a> > <a href="<?php echo $config['site_url']; ?><?php echo "/scws/".$ids;?>"><?php echo $return['scwsKeyword']['data']['keyword'];?></a></div>
   <div class="sy_zh">
     <div class="row">
       <div class="col-lg-8 col-12">
@@ -64,13 +67,13 @@
                 <?php foreach($return['informationList']['data'] as $key => $value) {?>
                     <li class="row">
                         <div class="col-lg-2 col-5">
-                            <div class="t_p"><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $info['id'];?>"><img src="<?php echo $value['logo'];?>"></a></div>
+                            <div class="t_p"><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $info['content']['id'];?>"><img src="<?php echo $value['content']['logo'];?>"></a></div>
                         </div>
                         <div class="col-lg-10 col-7">
                             <div class="w_z">
-                                <h3><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></h3>
-                                <p><?php echo $value['content']; ?></p>
-                                <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>" class="m_r">read more +</a>
+                                <h3><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['content']['title'];?></a></h3>
+                                <p><?php echo $value['content']['content']; ?></p>
+                                <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['content']['id'];?>" class="m_r">read more +</a>
                             </div>
                         </div>
                     </li>
@@ -78,7 +81,7 @@
             </ul>
           </div>
           <div class="page">
-              <?php render_page_pagination($info['page']['total_count'],$info['page']['page_size'],$page,$zxtype); ?>
+              <?php render_page_pagination($info['page']['total_count'],$info['page']['page_size'],$page,$config['site_url']."/scws/".$ids); ?>
           </div>
         </div>
       </div>
