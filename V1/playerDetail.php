@@ -5,7 +5,7 @@
  $player_id = $_GET['player_id']??0;
  $data = [
      "totalPlayerInfo"=>[$player_id],
-     //"totalTeamList"=>["page"=>1,"page_size"=>6,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage"],
+     "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage"],
      //"tournament"=>["page"=>1,"page_size"=>8],
      //"totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>8,"source"=>"cpseo","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
      //"defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
@@ -208,78 +208,16 @@
         <div class="ny_nr">
           <div class="rm_zd">
             <ul class="row">
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a1.jpg"></div>
-                  <div class="w_z">佛山GK</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a2.jpg"></div>
-                  <div class="w_z">西安WE</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a3.jpg"></div>
-                  <div class="w_z">KS.YTG</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a4.jpg"></div>
-                  <div class="w_z">TTG.XQ</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a5.jpg"></div>
-                  <div class="w_z">TSG</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a6.jpg"></div>
-                  <div class="w_z">EDG.Y</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a7.jpg"></div>
-                  <div class="w_z">FBP</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a8.jpg"></div>
-                  <div class="w_z">SNS</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a9.jpg"></div>
-                  <div class="w_z">AG超玩会</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a1.jpg"></div>
-                  <div class="w_z">佛山GK</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a2.jpg"></div>
-                  <div class="w_z">西安WE</div>
-                </a></div>
-              </li>
-              <li class="col-4">
-                <div class="n_r"><a href="">
-                  <div class="t_b"><img src="<?php echo $config['site_url'];?>/images/a3.jpg"></div>
-                  <div class="w_z">KS.YTG</div>
-                </a></div>
-              </li>
+                <?php
+                foreach($return["totalTeamList"]['data'] as $type => $team)
+                {?>
+                    <li class="col-4">
+                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $team['team_id'];?>">
+                                <div class="t_b"><img src="<?php echo $team['logo'];?>"></div>
+                                <div class="w_z"><?php echo $team['team_name'];?></div>
+                            </a></div>
+                    </li>
+                <?php }?>
             </ul>
           </div>
         </div>
