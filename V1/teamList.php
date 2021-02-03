@@ -18,6 +18,7 @@
  $return = curl_post($config['api_get'],json_encode($data),1);
  $info['page']['total_count'] = $return['teamList']['count'];
  $info['page']['total_page'] = ceil($return['teamList']['count']/$info['page']['page_size']);
+
  ?>
 <head>
 <meta charset="UTF-8" />
@@ -46,7 +47,7 @@
 </div>
 <div class="head_h"></div>
 <div class="container">
-  <div class="dq_wz"><a href="<?php echo $config['site_url'];?>">王者荣耀首页</a> > 战队列表</div>
+  <div class="dq_wz"><a href="<?php echo $config['site_url'];?>"><?php echo $config['game_name'];?>首页</a> > 战队列表</div>
   <div class="zd_lb">
     <div class="sy_bt">
       <div class="b_t"><?php echo $config['game_name'];?>战队列表</div>
@@ -93,7 +94,7 @@
                 foreach($return["playerList"]['data'] as $type => $player)
                 {?>
                     <li class="col-3">
-                        <div class="t_p"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player'];?>">
+                        <div class="t_p"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player_id'];?>">
                                 <img src="<?php echo $player['logo'];?>">
                                 <div class="w_z"><?php echo $player['player_name'];?></div>
                             </a></div>
