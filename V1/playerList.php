@@ -132,11 +132,17 @@
       <div class="b_t">友情链结</div>
       <div class="clear"></div>
     </div>
-    <div class="lj_nr"><a href="" target="_blank">VSPN电视</a><a href="" target="_blank">斗鱼直播</a><a href="" target="_blank">王者人生</a><a href="" target="_blank">微信游戏</a></div>
+    <div class="lj_nr">
+        <?php
+        foreach($return['links']['data'] as $linksInfo)
+        {   ?>
+            <a title = "<?php echo $linksInfo['name'];?>" href="<?php echo $linksInfo['url'];?>" target="_blank"><?php echo $linksInfo['name'];?></a>
+        <?php }?>
+    </div>
   </div>
 </div>
 <div class="banquan">
-  <div class="container">Copy@qulidianing.com</div>
+    <?php renderCertification();?>
 </div>
 <div class="fh_top"><img src="images/fh_top.png"></div>
 </body>

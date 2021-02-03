@@ -346,7 +346,7 @@
   </div>
 </div>
 <div class="banquan">
-  <div class="container">Copy@qulidianing.com</div>
+  <?php renderCertification();?>
 </div>
 <div class="fh_top"><img src="images/fh_top.png"></div>
 </body>

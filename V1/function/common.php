@@ -163,7 +163,7 @@
     }
     function renderCertification()
     {
-        echo '<div align="center">Copyright©2021.Company 麒麟电竞 All rights reserved   <a href="https://beian.miit.gov.cn/#/Integrated/index">琼ICP备19001306号-2</a></div>';
+        echo '<div class="container">网络文化经营许可证：琼网文〔2015〕2197-011号     琼ICP备19001306号-3</div>';
 
     }
     function str_replace_limit($search, $replace, $subject, $limit=-1){

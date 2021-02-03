@@ -223,7 +223,7 @@
   </div>
 </div>
 <div class="banquan">
-  <div class="container">Copy@qulidianing.com</div>
+  <?php renderCertification();?>
 </div>
 <div class="fh_top"><img src="images/fh_top.png"></div>
 <script type="text/javascript" src="js/swiper.min.js"></script> 
