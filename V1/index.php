@@ -13,7 +13,6 @@
  ];
  foreach($config['information_type_map'] as $type => $mapInfo)
  {
-
      $data["informationList_".$type] =  ["dataType"=>"informationList","page"=>1,"page_size"=>6,"type"=>$type];
  }
  $return = curl_post($config['api_get'],json_encode($data),1);
@@ -25,7 +24,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
-<title><?php echo $config['site_name'];?></title>
+<meta name="description" content="<?php echo $config['site_description'];?>">
+<meta name=”Keywords” Content=”<?php echo $config['site_name'];?>″>
+<title><?php echo $config['site_name'];?>_<?php echo $config['game_name'];?>电子竞技赛事资讯分析网</title>
     <?php renderHeaderJsCss($config);?>
 </head>
 
