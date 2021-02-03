@@ -190,7 +190,7 @@
                         $i = 1;
                         foreach($informationList as $key => $info)
                         { if($i==1){?>
-                        <div class="d_b"><a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>">女枪为什么叫MF？具体是什么原因？</a></div><ul>
+                        <div class="d_b"><a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a></div><ul>
                             <?php }else{?>
                                 <li>
                                 <span><?php echo $mapInfo['sub_name'];?></span>
