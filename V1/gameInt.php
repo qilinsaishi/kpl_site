@@ -146,7 +146,7 @@
                 foreach($return["totalPlayerList"]['data'] as $type => $player)
                 {?>
                     <li class="col-4">
-                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player'];?>">
+                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player_id'];?>">
                                 <div class="t_p"><img src="<?php echo $player['logo'];?>"></div>
                                 <div class="w_z">
                                     <div class="x_m"><?php echo $player['player_name'];?></div>
