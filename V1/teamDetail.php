@@ -8,28 +8,24 @@ $data = [
     "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage"],
     "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img"],"fields"=>["name","key","value"]],
     "links"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-    "keywordMapList"=>["fields"=>"content_id","source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information"],
+    "keywordMapList"=>["fields"=>"content_id","source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>6,"fields"=>"id,title,create_time"]],
     "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>14,"type"=>"1,2,3,5"],
     "currentPage"=>["name"=>"team","id"=>$team_id,"site_id"=>$config['site_id']]
 
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 $return['totalTeamInfo']['data']['race_stat'] = json_decode($return['totalTeamInfo']['data']['race_stat'],true);
-if(count($return["keywordMapList"]['data'])>0)
-{
-    $data2 = [
-        "informationList"=>["ids"=>array_column($return["keywordMapList"]['data'],"content_id"),"page_size"=>6,"fields"=>"id,title"]
-    ];
-    $return2 = curl_post($config['api_get'],json_encode($data2),1);
-    $connectedInformationList = $return2["informationList"]["data"];
-}
-else
+if(count($return["keywordMapList"]["data"])==0)
 {
     $data2 = [
         "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5"],
     ];
     $return2 = curl_post($config['api_get'],json_encode($data2),1);
     $connectedInformationList = $return2["informationList"]["data"];
+}
+else
+{
+    $connectedInformationList = $return["keywordMapList"]["data"];
 }
 ?>
 <head>
