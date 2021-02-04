@@ -96,7 +96,7 @@
                 <?php foreach($return['kplHero']['data']['skill_list'] as $skill){?>
                     <div class="n_r">
                         <h3><?php echo $skill['name'];?></h3>
-                        <h4>>冷却值：<?php echo $skill['cooling'];?>&nbsp;&nbsp;&nbsp;消耗：<?php echo $skill['consume'];?></h4>
+                        <h4>冷却值：<?php echo $skill['cooling'];?>&nbsp;&nbsp;&nbsp;消耗：<?php echo $skill['consume'];?></h4>
                         <p><?php echo $skill['skillDesc'];?></p>
                     </div>
                 <?php }?>
