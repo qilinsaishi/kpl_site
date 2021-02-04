@@ -13,7 +13,19 @@
  ];
 
  $return = curl_post($config['api_get'],json_encode($data),1);
- $connectedInformationList = $return["keywordMapList"]["data"];
+ if(count($return["keywordMapList"]["data"])==0)
+ {
+     $data2 = [
+         "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"team","source_id"=>$return['totalPlayerInfo']['data']['teamInfo']['team_id'],"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,create_time"]],
+     ];
+     $return2 = curl_post($config['api_get'],json_encode($data2),1);
+     $connectedInformationList = $return2["keywordMapList"]["data"];
+ }
+ else
+ {
+     $connectedInformationList = $return["keywordMapList"]["data"];
+ }
+
  $data3 = [
      "teamMateList"=>["dataType"=>"totalPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>"cpseo","fields"=>'player_id,player_name,logo,position',"team_id"=>$return['totalPlayerInfo']['data']['team_id']],
  ];
