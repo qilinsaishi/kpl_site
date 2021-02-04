@@ -6,9 +6,6 @@
  $data = [
      "totalPlayerInfo"=>[$player_id],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage"],
-     //"tournament"=>["page"=>1,"page_size"=>8],
-     //"totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>8,"source"=>"cpseo","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage"],
-     //"defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
      "links"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5"],
      "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"player","source_id"=>$player_id,"page_size"=>100,"content_type"=>"information"],
@@ -186,7 +183,8 @@
         foreach($return['links']['data'] as $linksInfo)
         {   ?>
             <a title = "<?php echo $linksInfo['name'];?>" href="<?php echo $linksInfo['url'];?>" target="_blank"><?php echo $linksInfo['name'];?></a>
-        <?php }?>    </div>
+        <?php }?>
+    </div>
   </div>
 </div>
 <div class="banquan">

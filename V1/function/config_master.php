@@ -30,8 +30,8 @@ $base_config = [
     ],
     'hero_tips' =>[
         'mate'=>"最佳搭档",
-        'suppress'=>"压制英雄",
-        'suppressed'=>"被压制英雄",
+        'suppressed'=>"压制英雄",
+        'suppress'=>"被压制英雄",
     ],
 ];
 
