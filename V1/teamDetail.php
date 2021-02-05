@@ -202,7 +202,7 @@ else
     </div>
     <div class="sy_yl">
         <div class="sy_bt">
-            <div class="b_t">友情链结</div>
+            <div class="b_t">友情链接</div>
             <div class="clear"></div>
         </div>
         <div class="lj_nr">
