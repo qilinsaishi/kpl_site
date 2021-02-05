@@ -26,7 +26,7 @@
         {
             for($i=1;$i<=$totalPage;$i++)
             {
-                echo '<a '.(($i-$current_page)==0?'class="active"':'').'href="'.$url."/".$i.'">'.$i.'</a>';
+                echo '<a '.(($i-$current_page)==0?'class="on"  ':'').'href="'.$url."/".$i.'">'.$i.'</a>';
             }
         }
         else
@@ -35,7 +35,7 @@
             {
                 for($i=1;$i<=$p;$i++)
                 {
-                    echo '<a '.(($i-$current_page)==0?'class="active"':'').' href="'.$url."/".$i.'">'.$i.'</a>';
+                    echo '<a '.(($i-$current_page)==0?'class="on"  ':'').' href="'.$url."/".$i.'">'.$i.'</a>';
                 }
                 echo '<a href="'.$url."/".($current_page+$p).'">...</a>';
                 for($i=$p2;$i>0;$i--)
@@ -47,7 +47,7 @@
             {
                 for($i=1;$i<=($p+$p2);$i++)
                 {
-                    echo '<a '.(($i-$current_page)==0?'class="active"':'').' href="'.$url."/".$i.'">'.$i.'</a>';
+                    echo '<a '.(($i-$current_page)==0?'class="on"  ':'').' href="'.$url."/".$i.'">'.$i.'</a>';
                 }
                 echo '<a  href="'.$url."/".($current_page+$p).'">...</a>';
                 for($i=$p2;$i>0;$i--)
@@ -64,7 +64,7 @@
                 echo '<a href="'.$url."/".($current_page-$p).'">...</a>';
                 for($i=$current_page-2;$i<=$current_page+2;$i++)
                 {
-                    echo '<a '.(($i-$current_page)==0?'class="active"':'').' href="'.$url."/".$i.'">'.$i.'</a>';
+                    echo '<a '.(($i-$current_page)==0?'class="on"  ':'').' href="'.$url."/".$i.'">'.$i.'</a>';
                 }
                 echo '<a href="'.$url."/".($current_page+$p).'">...</a>';
                 for($i=$p2;$i>0;$i--)
@@ -84,7 +84,7 @@
                 }
                 for($i=$p;$i>0;$i--)
                 {
-                    echo '<a '.(($totalPage-$i-$current_page)==0?'class="active"':'').' href="'.$url."/".($totalPage-$i).'">'.($totalPage-$i).'</a>';
+                    echo '<a '.(($totalPage-$i-$current_page)==0?'class="on"  ':'').' href="'.$url."/".($totalPage-$i).'">'.($totalPage-$i).'</a>';
                 }
             }
         }
