@@ -195,7 +195,7 @@
           </div>
         </div>
         <div class="sy_bt">
-          <div class="b_t">最新资讯</div>
+          <div class="b_t">最新<?php echo ($return['information']['data']['type']==4)?"攻略":"资讯";?></div>
           <div class="m_r">
             <div class="bg"></div>
               <a href="<?php echo $config['site_url']; ?><?php echo ($return['information']['data']['type']!=4)?"/strategylist/":"/newslist/";?>">MORE +</a>
