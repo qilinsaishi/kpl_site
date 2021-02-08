@@ -4,10 +4,10 @@
  $data = [
      "slideImage"=>["dataType"=>"imageList","site_id"=>$config['site_id'],"flag"=>"index_slide_pic","page_size"=>20],
      "heroList"=>["dataType"=>"kplHeroList","page"=>1,"page_size"=>15,"rand"=>1,"cacheWith"=>"currentPage"],
-     "totalTeamList"=>["page"=>1,"page_size"=>15,"game"=>$config['game'],"source"=>"cpseo","rand"=>1,"fields"=>'team_id,team_name,logo',"cacheWith"=>"currentPage"],
+     "totalTeamList"=>["page"=>1,"page_size"=>15,"game"=>$config['game'],"source"=>$config['source'],"rand"=>1,"fields"=>'team_id,team_name,logo',"cacheWith"=>"currentPage"],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
-     "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>5,"source"=>"cpseo","fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage"],
+     "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>5,"source"=>$config['source'],"fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage"],
      "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4],
      "currentPage"=>["name"=>"index","site_id"=>$config['site_id']]
  ];

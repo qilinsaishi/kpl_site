@@ -7,6 +7,7 @@ $base_config = [
     'game_name'=>"王者荣耀",
     'game'=>"kpl",
     'site_id'=>3,
+    'source'=>"cpseo",
     'information_type_map'=>
         [
             3=>["type_name"=>"赛事战报","sub_name"=>"战报"],
