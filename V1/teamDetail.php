@@ -176,7 +176,7 @@ else
                             { if($i<=6){?>
                                 <li class="col-4">
                                     <div class="t_p">
-                                        <a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>"><img src="<?php echo $info['logo'];?>"></a>
+                                        <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><img src="<?php echo $info['logo'];?>"></a>
                                         </div>
                                 </li>
                             <?php }$i++;}?>
@@ -191,7 +191,7 @@ else
                             { if($i>6){?>
                                 <li>
                                     <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
-                                    <a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
+                                    <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                                 </li>
                             <?php }$i++;}?>
                         </ul>

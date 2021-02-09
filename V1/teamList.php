@@ -121,7 +121,7 @@
                 {?>
                     <li>
                         <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
-                        <a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
+                        <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                     </li>
                 <?php }?>
             </ul>

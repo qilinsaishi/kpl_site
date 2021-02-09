@@ -189,12 +189,12 @@
                         $i = 1;
                         foreach($informationList as $key => $info)
                         { if($i==1){?>
-                        <div class="d_b"><a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a></div><ul>
+                        <div class="d_b"><a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a></div><ul>
                             <?php }else{?>
                                 <li>
                                 <span><?php echo $mapInfo['sub_name'];?></span>
                                 <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
-                                <a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
+                                <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                                 </li><?php }$i++;}?>
 
                         </ul>
@@ -220,7 +220,7 @@
                     <li>
                         <span>视频</span>
                         <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
-                        <a href="<?php echo $config['site_url'];?>/detail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
+                        <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                     </li>
                 <?php }?>
             </ul>
