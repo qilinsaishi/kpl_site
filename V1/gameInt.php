@@ -56,7 +56,7 @@
           <div class="t_p"><img src="<?php echo $return['gameConfig']['data']['logo'];?>"></div>
         </div>
         <div class="col-lg-7 col-12">
-          <div class="w_z"><?php echo $return['gameConfig']['data']['description'];?><br>
+          <div class="w_z">
               <?php echo $return['gameConfig']['data']['content'];?></div>
         </div>
       </div>
