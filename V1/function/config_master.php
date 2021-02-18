@@ -3,7 +3,7 @@
 $base_config = [
     'site_name'=>"麒麟赛事",
     'api_url'=>'http://api.qilindianjing.com',//api站点URL
-    'site_url'=>'http://www.qilingames.com',//本站URl
+    'site_url'=>'https://www.qilingames.com',//本站URl
     'game_name'=>"王者荣耀",
     'game'=>"kpl",
     'site_id'=>3,
