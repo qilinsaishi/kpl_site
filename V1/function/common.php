@@ -155,6 +155,7 @@
         echo '<script src="'.$config['site_url'].'/js/jquery-1.8.3.min.js" type="text/javascript" /></script>';
         echo '<script src="'.$config['site_url'].'/js/jquery.SuperSlide.2.1.1.js" type="text/javascript" /></script>';
         echo '<script src="'.$config['site_url'].'/js/main.js" type="text/javascript" /></script>';
+        echo '<script src="'.$config['site_url'].'/js/tongji.js" type="text/javascript" /></script>';
     }
     function renderFooterJsCss($config)
     {
