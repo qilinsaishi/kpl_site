@@ -34,6 +34,7 @@ $base_config = [
         'suppressed'=>"压制英雄",
         'suppress'=>"被压制英雄",
     ],
+    'baidu_token'=>'WGi6okVpl9ij8Gc3'
 ];
 
 $additional_config = [
