@@ -24,9 +24,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
-<meta name="description" content="这是一个信息很完整的<?php echo $config['game_name'];?>游戏资讯站">
+    <title><?php echo $config['game_name'];?>-游戏介绍</title><?php renderHeaderJsCss($config);?>
+    <meta name="description" content="这是一个信息很完整的<?php echo $config['game_name'];?>游戏资讯站">
 <meta name="keywords" content="<?php echo $config['game_name'];?>">
-<title><?php echo $config['game_name'];?>-游戏介绍</title><?php renderHeaderJsCss($config);?>
 </head>
 
 <body>

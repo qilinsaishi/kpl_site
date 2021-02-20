@@ -24,9 +24,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
-<meta name="description" content="<?php echo $config['site_description'];?>">
+    <title><?php echo $config['site_name'];?>_<?php echo $config['game_name'];?>电子竞技赛事资讯分析网</title>
+    <meta name="description" content="<?php echo $config['site_description'];?>">
 <meta name=”Keywords” Content=”<?php echo $config['site_name'];?>″>
-<title><?php echo $config['site_name'];?>_<?php echo $config['game_name'];?>电子竞技赛事资讯分析网</title>
     <?php renderHeaderJsCss($config);?>
 </head>
 
