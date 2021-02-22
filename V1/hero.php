@@ -24,7 +24,9 @@
 <meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
     <title><?php echo $config['game_name'];?><?php echo $return['kplHero']['data']['cn_name'].$return['kplHero']['data']['hero_name'];?>介绍_<?php echo $return['kplHero']['data']['cn_name'].$return['kplHero']['data']['hero_name'];?>攻略-<?php echo $config['site_name'];?></title>
-    <meta name="description" content="<?php echo mb_str_split($return['kplHero']['data']['description'],200);?>;?>">
+    <?php $desctiption = mb_str_split($return['kplHero']['data']['description'],200);
+    if(strlen($desctiption)<10){$desctiption = "";}?>
+    <meta name="description" content="<?php echo $desctiption;?>">
     <meta name=”Keywords” Content=”<?php echo $return['kplHero']['data']['hero_name'];?>,<?php echo $config['game_name'];?><?php echo $return['kplHero']['data']['hero_name'];?>″>
     <?php renderHeaderJsCss($config);?>
 </head>
