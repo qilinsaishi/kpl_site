@@ -46,7 +46,7 @@
 </div>
 <div class="head_h"></div>
 <div class="container">
-  <div class="dq_wz"><a href="<?php echo $config['site_url'];?>"><?php echo $config['game_name'];?>首页</a> > <a href="<?php echo $config['game_name'];?>/heroList">英雄介绍</a> > <?php echo $return['kplHero']['data']['hero_name'];?></div>
+  <div class="dq_wz"><a href="<?php echo $config['site_url'];?>"><?php echo $config['game_name'];?>首页</a> > <a href="<?php echo $config['site_url'];?>/heroList">英雄介绍</a> > <?php echo $return['kplHero']['data']['hero_name'];?></div>
   <div class="yx_js">
     <div class="row">
       <div class="col-lg-7 col-12">
