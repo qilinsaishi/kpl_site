@@ -355,6 +355,8 @@ transform:translateY(-50%);
 .sy_zh .xq_nr{padding:30px 20px; margin:30px 0;}
 .sy_zh .xw_xq .n_r{font-size:20px; line-height:38px;}
 .sy_zh .xw_xq .b_q a{padding:0 20px; font-size:18px; line-height:36px; margin-right:20px;}
+.sy_zh .xw_xq .author{font-size: 14px;  color: #888;margin:0px 50px 20px 0;float:left;}
+.sy_zh .xw_xq .c_time{font-size: 14px;  color: #888;}
 .sy_zh .mw_dp{margin:15px 0;}
 .sy_zh .mw_dp h3{font-size:26px; margin:15px 0;}
 .sy_zh .mw_dp p{font-size:18px; line-height:32px;}
@@ -680,3 +682,4 @@ transition:all 1s;
 
 .fh_top{width:50px; height:50px; background-color:#17b682; border-radius:50%; position:fixed; right:10px; bottom:20px; z-index:99999; display:none;}
 .fh_top img{width:100%; height:auto; display:block;}
+

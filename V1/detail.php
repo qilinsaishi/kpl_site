@@ -54,7 +54,7 @@
  $ids = array_column($return["information"]['data']['scws_list'],"keyword_id");
  $ids = count($ids)>0?implode(",",$ids):"0";
  $data2 = [
-     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>$info['type']=="info"?"1,2,3,5":"4","fields"=>"*","expect_id"=>$id],
+     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>$return['information']['data']['type']!=4?"1,2,3,5":"4","fields"=>"*","expect_id"=>$id],
      "infoList"=>["dataType"=>"informationList","game"=>$config['game'],"page"=>1,"page_size"=>6,
          "type"=>$return['information']['data']['type']!=4?"4":"1,2,3,5","fields"=>"id,title","expect_id"=>$id],
  ];
@@ -109,6 +109,8 @@
         <div class="xq_nr">
           <div class="xw_xq">
             <div class="b_t"><?php echo $return['information']['data']['title'];?></div>
+              <div class="author">作者：<?php echo $return['information']['data']['author'];?></div>
+              <div class="c_time">发布时间：<?php echo $return['information']['data']['create_time'];?> </div>
             <div class="n_r"><img src="<?php echo $return['information']['data']['logo'];?>"><br>
                 <?php echo $return['information']['data']['content'];?></div>
             <div class="b_q">
