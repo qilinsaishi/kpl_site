@@ -27,8 +27,9 @@
  }
 
  $data3 = [
-     "teamMateList"=>["dataType"=>"totalPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>$config['source'],"fields"=>'player_id,player_name,logo,position',"team_id"=>$return['totalPlayerInfo']['data']['team_id']],
+     "teamMateList"=>["dataType"=>"totalPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>6,"fields"=>'player_id,player_name,logo,position',"team_id"=>$return['totalPlayerInfo']['data']['team_id']],
  ];
+
  $return3 = curl_post($config['api_get'],json_encode($data3),1);
  ?>
 <head>
@@ -39,7 +40,7 @@
 <meta name="format-detection" content="telephone=no">
     <title><?php echo $return['totalPlayerInfo']['data']['player_name'];?>个人资料_<?php echo $return['totalPlayerInfo']['data']['teamInfo']['team_name'];?><?php if(!in_array($return['totalPlayerInfo']['data']['position'],["","?"])){echo $return['totalPlayerInfo']['data']['position'];}?><?php echo $return['totalPlayerInfo']['data']['player_name'];?>信息简介-<?php echo $config['site_name']?></title>
     <meta name="description" content="<?php echo $return['totalPlayerInfo']['data']['player_name'];?><?php echo $return['totalPlayerInfo']['data']['player_name'];?>，真名为<?php echo $return['totalPlayerInfo']['data']['player_name'];?>，<?php echo $return['totalPlayerInfo']['data']['country'];?>人，<?php if(!in_array($return['totalPlayerInfo']['data']['position'],["","?"])){echo "在".$return['totalTeamInfo']['data']['team_name']."中长期打".$return['totalPlayerInfo']['data']['position'].".位置，";}?><?php if(count($return['totalPlayerInfo']['data']['playerList'])>0){echo "与".implode(",",array_column($return['totalPlayerInfo']['data']['playerList'],"player_name"))."为队友";}?>。">
-    <meta name=”Keywords” Content=”<?php echo $return['totalPlayerInfo']['data']['player_name'];?>个人资料,<?php echo $return['totalTeamInfo']['data']['team_name'];?><?php if(!in_array($return['totalPlayerInfo']['data']['position'],["","?"])){echo $return['totalPlayerInfo']['data']['position'];}?><?php echo $return['totalPlayerInfo']['data']['player_name'];?>信息简介">
+    <meta name=”Keywords” Content=”<?php echo $return['totalPlayerInfo']['data']['player_name'];?>个人资料,<?php echo $return['totalPlayerInfo']['data']['teamInfo']['team_name'];?><?php if(!in_array($return['totalPlayerInfo']['data']['position'],["","?"])){echo $return['totalPlayerInfo']['data']['position'];}?><?php echo $return['totalPlayerInfo']['data']['player_name'];?>信息简介">
     <?php renderHeaderJsCss($config);?>
 </head>
 
@@ -86,7 +87,7 @@
       <ul class="row">
           <?php
           foreach($return3["teamMateList"]['data'] as $type => $player)
-          {?>
+          { if($player['player_id']!=$player_id){?>
               <li class="col-lg-2 col-4">
                   <div class="n_r"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player_id'];?>">
                           <div class="t_p"><img src="<?php echo $player['logo'];?>"></div>
@@ -96,7 +97,7 @@
                           </div>
                       </a></div>
               </li>
-          <?php }?>
+          <?php }}?>
       </ul>
     </div>
   </div>
