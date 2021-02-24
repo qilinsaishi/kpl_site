@@ -92,7 +92,7 @@
         <div class="nav">
             <ul>
                 <?php
-                $type = $return['information']['data']['type']==4 ?"info":"stra";
+                $type = $return['information']['data']['type']!=4 ?"info":"stra";
                 generateNav($config, $type);
                 ?>
             </ul>
