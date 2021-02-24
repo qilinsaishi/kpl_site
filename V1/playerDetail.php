@@ -27,7 +27,7 @@
  }
 
  $data3 = [
-     "teamMateList"=>["dataType"=>"totalPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>6,"fields"=>'player_id,player_name,logo,position',"team_id"=>$return['totalPlayerInfo']['data']['team_id']],
+     "teamMateList"=>["dataType"=>"totalPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>100,"fields"=>'player_id,player_name,logo,position',"team_id"=>$return['totalPlayerInfo']['data']['team_id']],
  ];
 
  $return3 = curl_post($config['api_get'],json_encode($data3),1);
