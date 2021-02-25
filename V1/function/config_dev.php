@@ -3,7 +3,7 @@
 $base_config = [
     'site_name'=>"70电竞",
     'api_url'=>'http://dev_lol_api.querylist.cn',//api站点URL
-    'site_url'=>'http://dev.lol_info.com',//本站URl
+    'site_url'=>'http://dev.kpl_info.com',//本站URl
     'game_name'=>"王者荣耀",
     'game'=>"kpl",
     'site_id'=>3,
