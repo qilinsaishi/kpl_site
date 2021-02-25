@@ -112,7 +112,7 @@
               <div class="author">作者：<?php echo $return['information']['data']['author'];?></div>
               <div class="c_time">发布时间：<?php echo date("Y-m-d H:i:s",strtotime($return['information']['data']['create_time'])+8*3600);?> </div>
             <div class="n_r"><img src="<?php echo $return['information']['data']['logo'];?>"><br>
-                <?php echo $return['information']['data']['content'];?></div>
+                <?php echo html_entity_decode($return['information']['data']['content']);?></div>
             <div class="b_q">
                 <?php
                 $i = 1;
