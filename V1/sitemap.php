@@ -15,7 +15,6 @@ foreach($config['navList'] as $nav)
 }
 $data = [
     "site_id"=>$config['site_id'],
-    "recent"=>3600,
 ];
 $return = curl_post($config['api_sitemap'],json_encode($data),1);
 
