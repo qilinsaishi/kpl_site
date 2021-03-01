@@ -61,7 +61,7 @@ renderHeaderJsCss($config); ?>
     </defs>
 </svg>
 <h2>很抱歉，您访问的页面找不到了</h2>
-<div class="banquan">
+<div class="banquan" style="position:fixed;bottom:0;">
     <?php renderCertification();?>
 </div>
 <div class="fh_top"><img src="<?php echo $config['site_url'];?>/images/fh_top.png"></div>
