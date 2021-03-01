@@ -69,7 +69,7 @@
                         <div class="col-lg-10 col-7">
                             <div class="w_z">
                                 <h3><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></h3>
-                                <p><?php echo $value['content']; ?></p>
+                                <p><?php echo strip_tags(html_entity_decode($value['content'])); ?></p>
                                 <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>" class="m_r">read more +</a>
                             </div>
                         </div>
