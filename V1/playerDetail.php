@@ -3,6 +3,10 @@
  <?php
  require_once "function/init.php";
  $player_id = $_GET['player_id']??0;
+ if($player_id<=0)
+ {
+     render404($config);
+ }
  $data = [
      "totalPlayerInfo"=>[$player_id],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>$config['source'],"fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage"],
@@ -11,8 +15,11 @@
      "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"player","source_id"=>$player_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,create_time"]],
      "currentPage"=>["name"=>"player","id"=>$player_id,"site_id"=>$config['site_id']]
  ];
-
  $return = curl_post($config['api_get'],json_encode($data),1);
+ if(!isset($return["totalPlayerInfo"]['data']['player_id']))
+ {
+     render404($config);
+ }
  if(count($return["keywordMapList"]["data"])==0)
  {
      $data2 = [

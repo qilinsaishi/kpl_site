@@ -2,11 +2,14 @@
 <html lang="zh-CN">
  <?php
  $hero_id = $_GET['hero_id'];
+ if($hero_id<=0)
+ {
+     render404($config);
+ }
  require_once "function/init.php";
 
  $data = [
      "kplHero"=>[$hero_id],
-     //"kplHeroList"=>["page"=>1,"page_size"=>15],
      "tournament"=>["page"=>1,"page_size"=>8],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
      "links"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
@@ -15,6 +18,10 @@
      "currentPage"=>["name"=>"hero","id"=>$hero_id,"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
+ if(!isset($return["kplHero"]['data']['hero_id']))
+ {
+     render404($config);
+ }
  $connectedInformationList = $return["keywordMapList"]["data"];
  ?>
 <head>
