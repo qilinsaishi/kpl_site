@@ -10,7 +10,7 @@
  }
  $data = [
      "information"=>[$id],
-     "links"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
+     "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "tournament"=>["page"=>1,"page_size"=>8],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>$config['source'],"rand"=>1,"cacheWith"=>"currentPage","fields"=>'team_id,team_name,logo'],
      "totalPlayerList"=>["page"=>1,"page_size"=>6,"game"=>$config['game'],"source"=>$config['source'],"rand"=>1,"cacheWith"=>"currentPage","fields"=>'player_id,player_name,logo'],
