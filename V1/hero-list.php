@@ -4,7 +4,7 @@
  $data = [
      //"matchList"=>["page"=>1,"page_size"=>9],
      "totalTeamList"=>["page"=>1,"page_size"=>15,"game"=>$config['game'],"source"=>$config['source'],"rand"=>1,"fields"=>'team_id,team_name,logo',"cacheWith"=>"currentPage"],
-     "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
+     "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>3,"source"=>$config['source'],"fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage"],
      "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4],

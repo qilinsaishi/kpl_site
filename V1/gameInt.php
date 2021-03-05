@@ -3,7 +3,7 @@
  require_once "function/init.php";
  $data = [
      "totalTeamList"=>["page"=>1,"page_size"=>15,"game"=>$config['game'],"source"=>$config['source'],"rand"=>1,"fields"=>'team_id,team_name,logo',"cacheWith"=>"currentPage"],
-     "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"]],
+     "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
      "heroList"=>["dataType"=>"kplHeroList","page"=>1,"page_size"=>1000,"cacheWith"=>"currentPage","fields"=>"hero_id,hero_name,logo,type"],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>3,"source"=>$config['source'],"fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage"],
