@@ -15,7 +15,6 @@ $data = [
     "keywordMapList"=>["fields"=>"content_id","source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>6,"fields"=>"id,title,create_time"]],
     "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>14,"type"=>"1,2,3,5"],
     "currentPage"=>["name"=>"team","id"=>$team_id,"site_id"=>$config['site_id']]
-
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
 if(!isset($return["totalTeamInfo"]['data']['team_id']) || $return["totalTeamInfo"]['data']['game'] != $config['game'] )
