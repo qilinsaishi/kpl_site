@@ -5,7 +5,7 @@ body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,p,i,b,em,span,form,fieldset,legend,input,text
 h1,h2,h3,h4,h5,h6{list-style:none;}
 input,select,button,textarea{font-size:15px; border:0; background:none; outline:none; vertical-align:middle; font-family:"Microsoft YaHei",Arial;}
 button{overflow:visible}
-img{border:none;}
+img{border:none;overflow-x: hidden;max-width: 820px;height: auto;}
 li{list-style:none;}
 a{color:#222; text-decoration:none;
 transition:all .5s;
@@ -228,8 +228,7 @@ line-clamp:2;
 .sy_zh .xw_xq .b_t{font-size:26px; font-weight:bold; color:#222; line-height:36px; text-align:center; margin-bottom:30px;}
 .sy_zh .xw_xq .author{font-size: 14px;  color: #888;margin:0px 50px 20px 0;float:left;}
 .sy_zh .xw_xq .c_time{font-size: 14px;  color: #888;}
-.sy_zh .xw_xq .n_r{font-size:16px; line-height:30px; margin-bottom:30px;}
-.sy_zh .xw_xq .n_r img{width:100%; height:auto; display:block;}
+.sy_zh .xw_xq .n_r{font-size:16px; line-height:30px; margin-bottom:30px;width:100%; height:auto; display:block;}
 .sy_zh .xw_xq .b_q a{display:inline-block; border:1px solid #ddd; padding:0 15px; line-height:26px; margin-right:10px;}
 .sy_zh .xw_xq .b_q a:hover{background-color:#17b682; border:1px solid #17b682; color:#fff;}
 .sy_zh .mw_dp{margin-top:15px; text-align:center;}
