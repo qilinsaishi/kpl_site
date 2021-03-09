@@ -91,7 +91,7 @@
                 foreach($return["teamList"]['data'] as $type => $team)
                 {?>
                     <li class="col-4">
-                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $team['team_id'];?>">
+                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/teamdetail/<?php echo $team['team_id'];?>">
                                 <div class="t_b"><img src="<?php echo $team['logo'];?>"></div>
                                 <div class="w_z"><?php echo $team['team_name'];?></div>
                             </a></div>
