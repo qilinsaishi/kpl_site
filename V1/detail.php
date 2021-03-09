@@ -12,9 +12,8 @@
      "information"=>[$id],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "tournament"=>["page"=>1,"page_size"=>8],
-     "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>$config['source'],"rand"=>1,"cacheWith"=>"currentPage","fields"=>'team_id,team_name,logo'],
-     "totalPlayerList"=>["page"=>1,"page_size"=>6,"game"=>$config['game'],"source"=>$config['source'],"rand"=>1,"cacheWith"=>"currentPage","fields"=>'player_id,player_name,logo'],
-     "playerList"=>["dataType"=>"totalPlayerList","page"=>1,"page_size"=>6,"source"=>$config['source']],
+     "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>$config['source'],"rand"=>1,"cacheWith"=>"currentPage","fields"=>'team_id,team_name,logo',"cache_time"=>86400*7],
+     "totalPlayerList"=>["page"=>1,"page_size"=>6,"game"=>$config['game'],"source"=>$config['source'],"rand"=>1,"cacheWith"=>"currentPage","fields"=>'player_id,player_name,logo',"cache_time"=>86400*7],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "currentPage"=>["name"=>"info","id"=>$id,"site_id"=>$config['site_id']]
  ];
@@ -55,9 +54,6 @@
          }
      }
  }
-
- //$ids = array_column($keywordsList,"id");
-
  array_multisort(array_combine(array_keys($keywordsList),array_column($keywordsList,"count")),SORT_DESC,$keywordsList);
  $ids = array_column($return["information"]['data']['scws_list'],"keyword_id");
  $ids = count($ids)>0?implode(",",$ids):"0";
