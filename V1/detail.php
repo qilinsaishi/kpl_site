@@ -75,7 +75,6 @@
          $i++;
      }
  }
-
  $imgpreg = '/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i';
  preg_match_all($imgpreg,$return['information']['data']['content'],$imgList);
  $i = 0;$replace_arr = [];
@@ -86,6 +85,19 @@
          //echo "replace:"."###".sprintf("%03d",$key)."###"."\n";
          $return['information']['data']['content'] = str_replace($img,"<br>".$img."<br>",$return['information']['data']['content']);
      }
+ }
+ $reg = "/['#']{3,2000}/u";
+ preg_match_all($reg,$return['information']['data']['content'],$match);
+ $match = array_unique($match);
+ $replace_list = [];
+ foreach($match['0'] as $k => $txt)
+ {
+     $replace_list[strlen($txt)] = $txt;
+ }
+ krsort($replace_list);
+ foreach($replace_list as $key => $txt)
+ {
+     $return['information']['data']['content'] = str_replace($txt,"",$return['information']['data']['content']);
  }
  ?>
 <head>
