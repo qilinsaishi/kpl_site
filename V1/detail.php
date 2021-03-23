@@ -75,6 +75,18 @@
          $i++;
      }
  }
+
+ $imgpreg = '/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i';
+ preg_match_all($imgpreg,$return['information']['data']['content'],$imgList);
+ $i = 0;$replace_arr = [];
+ if(isset($imgList['0']) && count($imgList['0']))
+ {
+     foreach($imgList['0'] as $key => $img)
+     {
+         //echo "replace:"."###".sprintf("%03d",$key)."###"."\n";
+         $return['information']['data']['content'] = str_replace($img,"<br>".$img."<br>",$return['information']['data']['content']);
+     }
+ }
  ?>
 <head>
 <meta charset="UTF-8" />
