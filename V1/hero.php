@@ -10,7 +10,6 @@
 
  $data = [
      "kplHero"=>[$hero_id],
-     "tournament"=>["page"=>1,"page_size"=>8],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>3,"source"=>"scoregg","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],

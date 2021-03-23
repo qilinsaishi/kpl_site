@@ -11,7 +11,6 @@
  $data = [
      "information"=>[$id],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-     "tournament"=>["page"=>1,"page_size"=>8],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","rand"=>1,"cacheWith"=>"currentPage","fields"=>'team_id,team_name,logo',"cache_time"=>86400*7],
      "totalPlayerList"=>["page"=>1,"page_size"=>6,"game"=>$config['game'],"source"=>"scoregg","rand"=>1,"cacheWith"=>"currentPage","fields"=>'player_id,player_name,logo',"cache_time"=>86400*7],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
@@ -75,6 +74,30 @@
          $return['information']['data']['content'] = str_replace_limit($word,'<a href="'.$wordInfo['url'].'" target="_blank">'.$word.'</a>',$return['information']['data']['content'],1);
          $i++;
      }
+ }
+ $imgpreg = '/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i';
+ preg_match_all($imgpreg,$return['information']['data']['content'],$imgList);
+ $i = 0;$replace_arr = [];
+ if(isset($imgList['0']) && count($imgList['0']))
+ {
+     foreach($imgList['0'] as $key => $img)
+     {
+         //echo "replace:"."###".sprintf("%03d",$key)."###"."\n";
+         $return['information']['data']['content'] = str_replace($img,"<br>".$img."<br>",$return['information']['data']['content']);
+     }
+ }
+ $reg = "/['#']{3,2000}/u";
+ preg_match_all($reg,$return['information']['data']['content'],$match);
+ $match = array_unique($match);
+ $replace_list = [];
+ foreach($match['0'] as $k => $txt)
+ {
+     $replace_list[strlen($txt)] = $txt;
+ }
+ krsort($replace_list);
+ foreach($replace_list as $key => $txt)
+ {
+     $return['information']['data']['content'] = str_replace($txt,"",$return['information']['data']['content']);
  }
  ?>
 <head>
