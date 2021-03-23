@@ -8,10 +8,10 @@
      $page=1;
  }
  $data = [
-     "teamList"=>["dataType"=>"totalTeamList","page"=>$page,"page_size"=>$info['page']['page_size'],"game"=>$config['game'],"source"=>"cpseo","fields"=>'team_id,team_name,logo'],
+     "teamList"=>["dataType"=>"totalTeamList","page"=>$page,"page_size"=>$info['page']['page_size'],"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo'],
      "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img","default_team_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-     "playerList"=>["dataType"=>"totalPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>8,"source"=>"cpseo","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
+     "playerList"=>["dataType"=>"totalPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>8,"source"=>"scoregg","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5"],
      "currentPage"=>["name"=>"teamList","page"=>$page,"page_size"=>$info['page']['page_size'],"site_id"=>$config['site_id']]
  ];

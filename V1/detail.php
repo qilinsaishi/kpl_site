@@ -11,9 +11,8 @@
  $data = [
      "information"=>[$id],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-     "tournament"=>["page"=>1,"page_size"=>8],
-     "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"cpseo","rand"=>1,"cacheWith"=>"currentPage","fields"=>'team_id,team_name,logo',"cache_time"=>86400*7],
-     "totalPlayerList"=>["page"=>1,"page_size"=>6,"game"=>$config['game'],"source"=>"cpseo","rand"=>1,"cacheWith"=>"currentPage","fields"=>'player_id,player_name,logo',"cache_time"=>86400*7],
+     "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","rand"=>1,"cacheWith"=>"currentPage","fields"=>'team_id,team_name,logo',"cache_time"=>86400*7],
+     "totalPlayerList"=>["page"=>1,"page_size"=>6,"game"=>$config['game'],"source"=>"scoregg","rand"=>1,"cacheWith"=>"currentPage","fields"=>'player_id,player_name,logo',"cache_time"=>86400*7],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "currentPage"=>["name"=>"info","id"=>$id,"site_id"=>$config['site_id']]
  ];
