@@ -75,7 +75,7 @@
          $i++;
      }
  }
- $return['information']['data']['content'] = replace_html_tag($return['information']['data']['content'],'<img>');
+ $return['information']['data']['content'] = replace_html_tag($return['information']['data']['content'],'<img><br><p>');
 
  $imgpreg = '/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i';
  preg_match_all($imgpreg,$return['information']['data']['content'],$imgList);
