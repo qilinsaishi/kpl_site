@@ -156,8 +156,7 @@
     }
     function renderCertification()
     {
-        echo '<div class="container">网络文化经营许可证：琼网文〔2015〕2197-011号    <a href="https://beian.miit.gov.cn/#/Integrated/index">琼ICP备19001306号-3</a></div>';
-
+        echo '<div class="container">网络文化经营许可证：琼网文〔2015〕2197-011号     <a style="color:white;" href="https://beian.miit.gov.cn/#/Integrated/index">琼ICP备19001306号-3</a></div>';
     }
     function str_replace_limit($search, $replace, $subject, $limit=-1){
         if(is_array($search)){
