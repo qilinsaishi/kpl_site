@@ -2,6 +2,7 @@
 <html lang="zh-CN">
  <?php
  require_once "function/init.php";
+ $reset = $_GET['reset']??0;
  $info['page']['page_size'] = 10;
  $info['type'] = $_GET['type']??"info";
  $page = $_GET['page']??1;
@@ -13,7 +14,7 @@
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>"scoregg","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     "informationList"=>["game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>$info['type']=="info"?"1,2,3,5":"4","fields"=>"*"],
+     "informationList"=>["game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>$info['type']=="info"?"1,2,3,5":"4","fields"=>"*","reset"=>intval($reset)],
      "currentPage"=>["name"=>"infoList","type"=>$zxtype,"page"=>$page,"page_size"=>$info['page']['page_size'],"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
@@ -23,6 +24,12 @@
  }
  $info['page']['total_count'] = $return['informationList']['count'];
  $info['page']['total_page'] = intval($return['informationList']['count']/$info['page']['page_size']);
+ if($reset>0)
+ {
+     print_r(array_column($return["informationList"]['data'],"id"));
+     echo "refreshed";
+     die();
+ }
  ?>
 <head>
 <meta charset="UTF-8" />

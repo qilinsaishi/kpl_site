@@ -10,7 +10,6 @@ rewrite  ^/newslist/(.*)/reset$  /zixun-list.php?page=$1&reset=1?  last;
 rewrite  ^/newslist/(.*)$  /zixun-list.php?page=$1?  last;
 rewrite  ^/newsdetail/(.*)$  /detail.php?id=$1?  last;
 rewrite  ^/detail/(.*)$  /detail_301.php?id=$1?  last;
-rewrite  ^/strategylist/(.*)/reset$  /zixun-list.php?type=strategy&page=$1&reset=1?  last;
 rewrite  ^/strategylist/(.*)$  /zixun-list.php?type=strategy&page=$1?  last;
 rewrite  ^/gameint  /gameInt.php  last;
 rewrite  ^/herolist/(.*)$    /hero-list.php?page=$1?  last;
