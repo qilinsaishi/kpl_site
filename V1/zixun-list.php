@@ -2,10 +2,10 @@
 <html lang="zh-CN">
  <?php
  require_once "function/init.php";
+ $reset = $_GET['reset']??0;
  $info['page']['page_size'] = 10;
  $info['type'] = $_GET['type']??"info";
  $page = $_GET['page']??1;
- $reset = $_GET['reset']??0;
  if($page==''){
      $page=1;
  }
