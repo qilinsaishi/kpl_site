@@ -12,7 +12,7 @@
      "kplHero"=>[$hero_id],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-     "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>3,"source"=>"scoregg","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
+     "hotPlayerList"=>["dataType"=>"intergratedPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>3,"fields"=>'pid,position,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"hero","source_id"=>$hero_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>13,"type"=>4,"fields"=>"id,title,logo,type,create_time"]],
      "currentPage"=>["name"=>"hero","id"=>$hero_id,"site_id"=>$config['site_id']]
  ];
@@ -176,7 +176,7 @@
           <div class="b_t">明星玩家</div>
           <div class="m_r">
             <div class="bg"></div>
-              <a href="<?php echo $config['site_url'];?>/playerlist/">MORE +</a>
+              <a href="<?php echo $config['site_url'];?>/players/">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
@@ -184,10 +184,10 @@
           <div class="rm_xs">
             <ul class="row">
                 <?php
-                foreach($return["totalPlayerList"]['data'] as $type => $player)
+                foreach($return["hotPlayerList"]['data'] as $type => $player)
                 {?>
                     <li class="col-4">
-                        <div class="t_p"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player_id'];?>">
+                        <div class="t_p"><a href="<?php echo $config['site_url'];?>/player/<?php echo $player['pid'];?>">
                                 <img src="<?php echo $player['logo'];?>">
                                 <div class="w_z"><?php echo $player['player_name'];?></div>
                             </a></div>

@@ -4,10 +4,10 @@
  $data = [
      "slideImage"=>["dataType"=>"imageList","site_id"=>$config['site_id'],"flag"=>"index_slide_pic","page_size"=>20],
      "heroList"=>["dataType"=>"kplHeroList","page"=>1,"page_size"=>15,"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     "totalTeamList"=>["page"=>1,"page_size"=>15,"game"=>$config['game'],"source"=>"scoregg","rand"=>1,"fields"=>'team_id,team_name,logo',"cacheWith"=>"currentPage","cache_time"=>86400*7],
+     "hotTeamList"=>["dataType"=>"intergratedTeamList","page"=>1,"page_size"=>15,"game"=>$config['game'],"rand"=>1,"fields"=>'tid,team_name,logo',"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
-     "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>5,"source"=>"scoregg","fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
+     "hotPlayerList"=>["dataType"=>"intergratedPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>5,"fields"=>'pid,position,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4],
      "currentPage"=>["name"=>"index","site_id"=>$config['site_id'],"cache_time"=>86400*7]
  ];
@@ -88,7 +88,7 @@
           <div class="b_t">热门战队</div>
           <div class="m_r">
             <div class="bg"></div>
-            <a href="<?php echo $config['site_url'];?>/teamlist/">MORE +</a>
+            <a href="<?php echo $config['site_url'];?>/teams/">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
@@ -96,10 +96,10 @@
           <div class="rm_zd">
             <ul class="row">
                 <?php
-                foreach($return["totalTeamList"]['data'] as $type => $team)
+                foreach($return["hotTeamList"]['data'] as $type => $team)
                 {?>
                     <li class="col-4">
-                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/teamdetail/<?php echo $team['team_id'];?>">
+                        <div class="n_r"><a href="<?php echo $config['site_url'];?>/team/<?php echo $team['tid'];?>">
                                 <div class="t_b"><img src="<?php echo $team['logo'];?>"></div>
                                 <div class="w_z"><?php echo $team['team_name'];?></div>
                             </a></div>
@@ -116,17 +116,17 @@
       <div class="b_t">明星选手</div>
       <div class="m_r">
         <div class="bg"></div>
-        <a href="<?php echo $config['site_url'];?>/playerlist/">MORE +</a>
+        <a href="<?php echo $config['site_url'];?>/players/">MORE +</a>
       </div>
       <div class="clear"></div>
     </div>
     <div class="mx_tj">
       <ul class="row">
           <?php
-          foreach($return["totalPlayerList"]['data'] as $type => $player)
+          foreach($return["hotPlayerList"]['data'] as $type => $player)
           {?>
               <li>
-                  <div class="n_r"><a href="<?php echo $config['site_url'];?>/playerdetail/<?php echo $player['player_id'];?>">
+                  <div class="n_r"><a href="<?php echo $config['site_url'];?>/player/<?php echo $player['pid'];?>">
                           <div class="t_p"><img src="<?php echo $player['logo'];?>"></div>
                           <div class="w_z">
                               <div class="x_m"><?php echo $player['player_name'];?></div>
