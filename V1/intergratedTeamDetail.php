@@ -10,7 +10,7 @@ if($tid<=0)
 $data = [
     "intergratedTeam"=>[$tid],
     "intergratedTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"fields"=>'tid,team_name,logo',"except_team"=>$tid,"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-    "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
+    "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img","default_team_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
     "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
     "keywordMapList"=>["fields"=>"content_id","source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>6,"fields"=>"id,title,create_time"]],
     "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>14,"type"=>"1,2,3,5"],
@@ -67,7 +67,7 @@ else
     <div class="zd_js">
         <div class="row">
             <div class="col-lg-2 col-4">
-                <div class="t_p"><img src="<?php echo $return['intergratedTeam']['data']['logo'];?>"></div>
+                <div class="t_p"><img src="<?php echo  strlen($return['intergratedTeam']['data']['logo'])>=10 ?$return['intergratedTeam']['data']['logo']:$return['defaultConfig']['data']['default_team_img']['value'];?>"></div>
             </div>
             <div class="col-lg-10 col-8">
                 <div class="w_z">
@@ -96,7 +96,7 @@ else
                         <div class="n_r"><a href="<?php echo $config['site_url']; ?>/player/<?php echo $playerInfo['pid'];?>" title="<?php echo $playerInfo['player_name']?>" target="_blank">
                                 <div class="t_p">
                                     <?php if(isset($return['defaultConfig']['data']['default_player_img'])){?>
-                                        <img lazyload="true" data-original="<?php echo $return['defaultConfig']['data']['default_player_img']['value'];?>" src="<?php echo $playerInfo['logo'];?>" title="<?php echo $playerInfo['player_name'];?>" />
+                                        <img lazyload="true" data-original="<?php echo $return['defaultConfig']['data']['default_player_img']['value'];?>" src="<?php echo strlen($playerInfo['logo'])>10 ? $playerInfo['logo']:$return['defaultConfig']['data']['default_player_img']['value'];?>" title="<?php echo $playerInfo['player_name'];?>" />
                                     <?php }else{?>
                                         <img src="<?php echo $playerInfo['logo'];?>" title="<?php echo $playerInfo['player_name'];?>" />
                                     <?php }?>

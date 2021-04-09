@@ -158,7 +158,7 @@
           <div class="b_t">相关战队推荐</div>
           <div class="m_r">
             <div class="bg"></div>
-              <a href="<?php echo $config['site_url'];?>/team/">MORE +</a>
+              <a href="<?php echo $config['site_url'];?>/teams/">MORE +</a>
           </div>
           <div class="clear"></div>
         </div>
