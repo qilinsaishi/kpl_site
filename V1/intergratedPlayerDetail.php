@@ -2,17 +2,17 @@
 <html lang="zh-CN">
  <?php
  require_once "function/init.php";
+ $reset = $_GET['reset']??0;
  $pid = $_GET['pid']??0;
  if($pid<=0)
  {
      render404($config);
  }
  $data = [
-     "intergratedPlayer"=>[$pid],
+     "intergratedPlayer"=>[$pid,"reset"=>$reset],
      "intergratedTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"fields"=>'tid,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5"],
-     "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"player","source_id"=>$pid,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,create_time"]],
      "currentPage"=>["name"=>"player","id"=>$pid,"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
@@ -20,20 +20,17 @@
  {
      render404($config);
  }
- if(count($return["keywordMapList"]["data"])==0)
- {
-     $data2 = [
-         "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"team","source_id"=>$return['intergratedPlayer']['data']['teamInfo']['team_id'],"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,create_time"]],
-     ];
-     $return2 = curl_post($config['api_get'],json_encode($data2),1);
-     $connectedInformationList = $return2["keywordMapList"]["data"];
- }
- else
- {
-     $connectedInformationList = $return["keywordMapList"]["data"];
- }
 
-
+ $data2 = [
+         "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"team","source_id"=>$return["intergratedPlayer"]['data']['intergrated_id_list'],"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,create_time"]],
+ ];
+ $return2 = curl_post($config['api_get'],json_encode($data2),1);
+ $connectedInformationList = $return2["keywordMapList"]["data"];
+ if($reset>0)
+ {
+     echo "refreshed";
+     die();
+ }
  ?>
 <head>
 <meta charset="UTF-8" />
