@@ -12,7 +12,6 @@ $data = [
     "intergratedTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"fields"=>'tid,team_name,logo',"except_team"=>$tid,"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
     "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
     "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-    "keywordMapList"=>["fields"=>"content_id","source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>6,"fields"=>"id,title,create_time"]],
     "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>14,"type"=>"1,2,3,5"],
     "currentPage"=>["name"=>"team","id"=>$tid,"site_id"=>$config['site_id']]
 ];
@@ -21,17 +20,25 @@ if(!isset($return["intergratedTeam"]['data']['tid']) || $return["intergratedTeam
 {
     render404($config);
 }
-if(count($return["keywordMapList"]["data"])==0)
+else
+{
+    $data3 = [
+        "keywordMapList"=>["fields"=>"content_id","source_type"=>"team","source_id"=>$return["intergratedTeam"]['data']['intergrated_id_list'],"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>5,"fields"=>"id,title,create_time"]],
+    ];
+    $return3 = curl_post($config['api_get'],json_encode($data3),1);
+
+}
+if(count($return3["keywordMapList"]["data"]??[])==0)
 {
     $data2 = [
-        "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5"],
+        "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>5,"type"=>"1,2,3,5"],
     ];
     $return2 = curl_post($config['api_get'],json_encode($data2),1);
     $connectedInformationList = $return2["informationList"]["data"];
 }
 else
 {
-    $connectedInformationList = $return["keywordMapList"]["data"];
+    $connectedInformationList = $return3["keywordMapList"]["data"];
 }
 ?>
 <head>
