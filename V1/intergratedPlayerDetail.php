@@ -73,7 +73,7 @@
           <div class="x_m"><?php echo $return['intergratedPlayer']['data']['player_name'];?></div>
           <div class="j_j">中文名：<?php echo $return['intergratedPlayer']['data']['cn_name'];?><br>
           英文名：<?php echo $return['intergratedPlayer']['data']['en_name'];?><br>
-              所属战队：<a href = '<?php echo $config['site_url']; ?>/teamdetail/<?php echo $return['intergratedPlayer']['data']['teamInfo']['team_id'];?>'><?php echo $return['intergratedPlayer']['data']['teamInfo']['team_name'];?></a><br>
+              所属战队：<a href = '<?php echo $config['site_url']; ?>/team/<?php echo $return['intergratedPlayer']['data']['teamInfo']['tid'];?>'><?php echo $return['intergratedPlayer']['data']['teamInfo']['team_name'];?></a><br>
               游戏位置：<?php echo $return['intergratedPlayer']['data']['position'];?><br>
           ID：<?php echo $return['intergratedPlayer']['data']['player_name'];?><br>
           个人简介：<?php echo $return['intergratedPlayer']['data']['description'];?></div>
