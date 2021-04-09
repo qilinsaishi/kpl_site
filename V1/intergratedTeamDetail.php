@@ -2,13 +2,14 @@
 <html lang="zh-CN">
 <?php
 require_once "function/init.php";
+$reset = $_GET['reset']??0;
 $tid = $_GET['tid']??0;
 if($tid<=0)
 {
     render404($config);
 }
 $data = [
-    "intergratedTeam"=>[$tid],
+    "intergratedTeam"=>[$tid,"reset"=>$reset],
     "intergratedTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"fields"=>'tid,team_name,logo',"except_team"=>$tid,"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
     "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
     "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
@@ -39,6 +40,11 @@ if(count($return3["keywordMapList"]["data"]??[])==0)
 else
 {
     $connectedInformationList = $return3["keywordMapList"]["data"];
+}
+if($reset>0)
+{
+    echo "refreshed";
+    die();
 }
 ?>
 <head>
