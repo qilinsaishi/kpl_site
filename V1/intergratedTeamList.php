@@ -62,7 +62,7 @@
                   <div class="n_r"><a href="<?php echo $config['site_url']; ?>/team/<?php echo $teamInfo['tid'];?>" title="<?php echo $teamInfo['team_name'];?>">
                           <div class="t_b">
                               <?php if(isset($return['defaultConfig']['data']['default_team_img'])){?>
-                                  <img lazyload="true" data-original="<?php echo $return['defaultConfig']['data']['default_team_img']['value'];?>" src="<?php echo $teamInfo['logo'];?>" title="<?php echo $teamInfo['team_name'];?>" />
+                                  <img lazyload="true" data-original="<?php echo $return['defaultConfig']['data']['default_team_img']['value'];?>" src="<?php echo strlen($teamInfo['logo'])>=10 ?$teamInfo['logo']:$return['defaultConfig']['data']['default_team_img']['value'];?>" title="<?php echo $teamInfo['team_name'].$teamInfo['tid'];?>" />
                               <?php }else{?>
                                   <img src="<?php echo $teamInfo['logo'];?>" title="<?php echo $teamInfo['team_name'];?>" />
                               <?php }?></div>
