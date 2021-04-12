@@ -21,7 +21,7 @@ if(!isset($return["totalTeamInfo"]['data']['team_id']) || $return["totalTeamInfo
 {
     render404($config);
 }
-$return['totalTeamInfo']['data']['race_stat'] = json_decode($return['totalTeamInfo']['data']['race_stat']??"",true);
+$return['totalTeamInfo']['data']['race_stat'] = json_decode($return['totalTeamInfo']['data']['race_stat']??"",true)??[];
 if(count($return["keywordMapList"]["data"])==0)
 {
     $data2 = [
@@ -76,7 +76,7 @@ else
                     <div class="j_s">
                         英文名：<?php echo $return['totalTeamInfo']['data']['en_name'];?><br>
                         <?php
-                        if(count($return['totalTeamInfo']['data']['race_stat'])>0){echo '游戏战绩：'.implode('/',$return['totalTeamInfo']['data']['race_stat']);}?></div>
+                        if(is_array($return['totalTeamInfo']['data']['race_stat']) && count($return['totalTeamInfo']['data']['race_stat'])>0){echo '游戏战绩：'.implode('/',$return['totalTeamInfo']['data']['race_stat']);}?></div>
                     <div class="j_j"><?php echo htmlspecialchars_decode($return['totalTeamInfo']['data']['description']);?></div>
                 </div>
             </div>
