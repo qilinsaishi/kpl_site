@@ -179,5 +179,17 @@
         $string = strip_tags($string,$tagname); // 保留 <span>标签
         return $string;
     }
+    function renderIntergratedTeam($config,$tid)
+    {
+        header('location:'.$config['site_url'] . '/team/' . $tid);
+        exit;
+        return true;
+    }
+    function renderIntergratedPlayer($config,$pid)
+    {
+        header('location:'.$config['site_url'] . '/player/' . $pid);
+        exit;
+        return true;
+    }
 
 ?>
