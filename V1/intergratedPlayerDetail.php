@@ -59,7 +59,7 @@
 </div>
 <div class="head_h"></div>
 <div class="container">
-  <div class="dq_wz"><a href="<?php echo $config['site_url'];?>"><?php echo $config['game_name'];?>首页</a> > <a href="<?php echo $config['site_url'];?>/playerlist/">选手列表</a> > 选手详情</div>
+  <div class="dq_wz"><a href="<?php echo $config['site_url'];?>"><?php echo $config['game_name'];?>首页</a> > <a href="<?php echo $config['site_url'];?>/players/">选手列表</a> > 选手详情</div>
   <div class="cy_js">
     <div class="row">
       <div class="col-lg-2 col-4">
