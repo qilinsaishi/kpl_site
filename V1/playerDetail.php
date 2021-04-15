@@ -8,6 +8,19 @@
      render404($config);
  }
  $data = [
+     "totalPlayerInfo"=>[$player_id]
+ ];
+ $return = curl_post($config['api_get'],json_encode($data),1);
+ if(!isset($return["totalPlayerInfo"]['data']['player_id']) || $return["totalPlayerInfo"]['data']['game'] != $config['game'] )
+ {
+     render404($config);
+ }
+ if($return["totalPlayerInfo"]['data']['pid']>0)
+ {
+     renderIntergratedPlayer($config,$return["totalPlayerInfo"]['data']['pid']);
+     die();
+ }
+ $data = [
      "totalPlayerInfo"=>[$player_id],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
