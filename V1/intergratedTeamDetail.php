@@ -54,7 +54,7 @@ if($reset>0)
     <meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
     <meta name="format-detection" content="telephone=no">
     <title><?php echo $return['intergratedTeam']['data']['team_name'];?>电子竞技俱乐部_<?php echo $return['intergratedTeam']['data']['team_name'];?>战队_<?php echo $return['intergratedTeam']['data']['team_name'];?>电竞俱乐部成员介绍-<?php echo $config['site_name'];?></title>
-    <meta name="description" content="<?php echo $return['intergratedTeam']['data']['description']??"";?>">
+    <meta name="description" content="<?php echo strip_tags($return['intergratedTeam']['data']['description']??"");?>">
     <meta name=”Keywords” Content=”<?php echo $return['intergratedTeam']['data']['team_name'];?>电子竞技俱乐部,<?php
     if(substr_count($return['intergratedTeam']['data']['team_name'],"战队")==0){echo $return['intergratedTeam']['data']['team_name'].'战队,';}?><?php echo $return['intergratedTeam']['data']['team_name'];?>电竞俱乐部成员介绍″>
     <?php renderHeaderJsCss($config);?>
