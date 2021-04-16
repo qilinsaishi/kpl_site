@@ -17,6 +17,16 @@ $data = [
     "currentPage"=>["name"=>"team","id"=>$tid,"site_id"=>$config['site_id']]
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
+$return["intergratedTeam"]['data']['redirect'] = json_decode($return["intergratedTeam"]['data']['redirect'],true);
+if(isset($return["intergratedTeam"]['data']['redirect']['tid']) && $return["intergratedTeam"]['data']['redirect']['tid']>0)
+{
+    renderIntergratedTeam($config,$return["intergratedTeam"]['data']['redirect']['tid']);
+    die();
+}
+elseif(isset($return["intergratedTeam"]['data']['redirect']['team_id']) && $return["intergratedTeam"]['data']['redirect']['team_id']>0)
+{
+    //return $this->getTeamInfo($totalTeam['redirect']['team_id'],0,$get_data,$force);
+}
 if(!isset($return["intergratedTeam"]['data']['tid']) || $return["intergratedTeam"]['data']['game'] != $config['game'] )
 {
     render404($config);

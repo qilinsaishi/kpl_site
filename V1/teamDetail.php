@@ -87,6 +87,7 @@ else
                 <div class="w_z">
                     <div class="x_m"><?php echo $return['totalTeamInfo']['data']['team_name'];?></div>
                     <div class="j_s">
+                        全称：<?php echo $return['totalTeamInfo']['data']['team_full_name']??$return['totalTeamInfo']['data']['team_name'];?><br>
                         英文名：<?php echo $return['totalTeamInfo']['data']['en_name'];?><br>
                         <?php
                         if(count($return['totalTeamInfo']['data']['race_stat'])>0){echo '游戏战绩：'.implode('/',$return['totalTeamInfo']['data']['race_stat']);}?></div>
