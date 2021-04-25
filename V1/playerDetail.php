@@ -3,12 +3,13 @@
  <?php
  require_once "function/init.php";
  $player_id = $_GET['player_id']??0;
+ $reset = $_GET['reset']??0;
  if($player_id<=0)
  {
      render404($config);
  }
  $data = [
-     "totalPlayerInfo"=>[$player_id],
+     "totalPlayerInfo"=>[$player_id,"reset"=>intval($reset)],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5"],
@@ -16,6 +17,11 @@
      "currentPage"=>["name"=>"player","id"=>$player_id,"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
+ if($reset>0)
+ {
+     echo "refreshed";
+     die();
+ }
  if(!isset($return["totalPlayerInfo"]['data']['player_id']) || $return["totalPlayerInfo"]['data']['game'] != $config['game'] )
  {
      render404($config);
