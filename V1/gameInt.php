@@ -7,13 +7,13 @@
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
      "heroList"=>["dataType"=>"kplHeroList","page"=>1,"page_size"=>1000,"cacheWith"=>"currentPage","fields"=>"hero_id,hero_name,logo,type"],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>3,"source"=>"scoregg","fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4],
+     "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4,"game"=>$config['game']],
      "gameConfig"=>$config['game'],
      "currentPage"=>["name"=>"gameInt","site_id"=>$config['site_id']]
  ];
  foreach($config['information_type_map'] as $type => $mapInfo)
  {
-     $data["informationList_".$type] =  ["dataType"=>"informationList","page"=>1,"page_size"=>6,"type"=>$type];
+     $data["informationList_".$type] =  ["dataType"=>"informationList","page"=>1,"page_size"=>6,"game"=>$config['game'],"type"=>$type];
  }
  $return = curl_post($config['api_get'],json_encode($data),1);
  ?>

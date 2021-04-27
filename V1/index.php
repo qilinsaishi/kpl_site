@@ -8,12 +8,12 @@
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>5,"source"=>"scoregg","fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4],
+     "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4,"game"=>$config['game']],
      "currentPage"=>["name"=>"index","site_id"=>$config['site_id'],"cache_time"=>86400*7]
  ];
  foreach($config['information_type_map'] as $type => $mapInfo)
  {
-     $data["informationList_".$type] =  ["dataType"=>"informationList","page"=>1,"page_size"=>6,"type"=>$type];
+     $data["informationList_".$type] =  ["dataType"=>"informationList","page"=>1,"page_size"=>6,"type"=>$type,"game"=>$config['game']];
  }
  $return = curl_post($config['api_get'],json_encode($data),1);
  ?>
