@@ -56,7 +56,10 @@
   <div class="yx_js">
     <div class="row">
       <div class="col-lg-7 col-12">
-        <div class="t_p"><img src="<?php echo $return['kplHero']['data']['logo'];?>"></div>
+        <div class="t_p t_p_hero">
+        <!-- <img src="/images/ceshi3.jpg" alt="" class="t_p_img1"> -->
+         <img src="<?php echo $return['kplHero']['data']['logo'];?>" class="t_p_img1">  
+        </div>
       </div>
       <div class="col-lg-5 col-12">
         <div class="w_z">
@@ -150,9 +153,9 @@
                   <?php }?>
               </ul>
             </div>
-            <div class="bd">
+            <div class="bd clearfix">
                 <?php foreach($config['hero_tips'] as $type => $type_name) {?>
-                    <div class="n_r">
+                    <div class="n_r clearfix">
                         <div class="t_x">
                             <ul>
                                 <?php foreach($return['kplHero']['data']['hero_tips'][$type] as $key => $tip_hero){?>
@@ -264,5 +267,82 @@
     <?php renderCertification();?>
 </div>
 <div class="fh_top"><img src="<?php echo $config['site_url']?>/images/fh_top.png"></div>
+<script>
+  //字体溢出隐藏
+var str = $(".dk").text();
+    
+    var tempt = str;
+    coverup();
+    function coverup() {
+        if (str.length > 90) {
+            $(".dk").text(tempt.slice(0, 90) + "...");
+        }
+        var readmore = "<a onclick='showmore()'  style='color: orange;'>查看更多↓</a>"
+        $(".dk").append(readmore);
+    }
+ 
+    function showmore() {
+        $(".dk").text(str);
+        var readmore = "<a onclick='coverup()'  style='color: orange;'>收起↑</a>"
+        $(".dk").append(readmore);
+    }
+</script>
+<script>
+  //图片自适应大小
+function setImgWidthHeight() {
+    var maxwidth = 770;
+    var maxheight = 314;
+    var img = new Image();
+    img.src = $(".t_p_img1").attr("src");
+    // 初始化高度和宽度
+    $(".t_p_img1").width(img.width);
+    $(".t_p_img1").height(img.height);
+    //高度和宽度设置
+    //设置div的宽度/高度比值
+    var di = maxwidth / maxheight
+    var ii = img.width / img.height
+    if(ii=1){
+      $(".t_p_img1").height(maxheight);
+      $(".t_p_img1").width(maxheight);
+    }
+    if (img.width > maxwidth && di > ii) {
+        //那就把图片的直接设置为div的最大宽度
+        $(".t_p_img1").height(maxheight);
+        // 再判断高度
+        //div的最大宽度/图片的实际宽度，求出比值
+        var i = maxheight / img.height;
+        var ih = i * img.width; // 计算高度的缩放比例
+        if (ih > maxwidth) {
+            // 如果走到这里则图片会被拉伸
+            $(".t_p_img1").widht(maxwidth);
+        } else {
+            $(".t_p_img1").width(ih);
+        }
+    }
+    else {
+        if (img.height > maxheight) {
+            if (di - ii > 0) {
+                $(".t_p_img1").height(maxheight);
+                // 再判断宽度
+                var i = maxheight / img.height;
+                var iw = i * img.width;
+                if (iw > maxwidth) {
+                    $(".t_p_img1").width(maxwidth);
+                } else {
+                    $(".t_p_img1").width(iw);
+                }
+            }
+        }
+    }
+}
+//调用需要在img加载完，否则会出现长和宽都是0的情况：
+$(function () {
+    $('.t_p_img1').load(function () {
+
+        // 加载完成    
+        setImgWidthHeight();
+    });
+});
+</script>
 </body>
 </html>
