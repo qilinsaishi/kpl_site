@@ -2,7 +2,7 @@
 
 $base_config = [
     'site_name'=>"70电竞",
-    'api_url'=>'http://pre.querylist.cn',//api站点URL
+    'api_url'=>'http://preapi.querylist.cn',//api站点URL
     'site_url'=>'http://pre.kpl_info.com',//本站URl
     'game_name'=>"王者荣耀",
     'game'=>"kpl",
