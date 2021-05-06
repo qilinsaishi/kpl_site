@@ -13,7 +13,7 @@ $data = [
     "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
     "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
     "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-    "keywordMapList"=>["fields"=>"content_id","source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>6,"fields"=>"id,title,create_time"]],
+    "keywordMapList"=>["fields"=>"content_id","source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>6,"fields"=>"id,title,site_time"]],
     "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>14,"type"=>"1,2,3,5"],
     "currentPage"=>["name"=>"team","id"=>$team_id,"site_id"=>$config['site_id']]
 ];
@@ -137,7 +137,7 @@ if(substr($return['totalTeamInfo']['data']['description'],0,1)=='"' && substr($r
                             {
                                 foreach($connectedInformationList as $key => $value) {?>
                                     <li>
-                                    <div class="s_j"><?php echo substr($value['create_time'],0,10);?></div>
+                                    <div class="s_j"><?php echo date("Y-m-d",strtotime($value['site_time'])+8*3600);?></div>
                                     <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                                     </li>
                                 <?php }}else{ ?>
@@ -207,7 +207,7 @@ if(substr($return['totalTeamInfo']['data']['description'],0,1)=='"' && substr($r
                             foreach($return["informationList"]['data'] as  $info)
                             { if($i>6){?>
                                 <li>
-                                    <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                                    <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time'])+8*3600);?></div>
                                     <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                                 </li>
                             <?php }$i++;}?>

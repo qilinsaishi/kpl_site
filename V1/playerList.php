@@ -117,7 +117,7 @@
                 foreach($return["informationList"]['data'] as  $info)
                 {?>
                     <li>
-                        <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                        <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time'])+8*3600);?></div>
                         <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                     </li>
                 <?php }?>
