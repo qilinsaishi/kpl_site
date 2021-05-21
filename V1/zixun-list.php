@@ -14,7 +14,7 @@
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>"scoregg","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     "informationList"=>["game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>$info['type']=="info"?"1,2,3,5,6,7":"4","fields"=>"*","reset"=>intval($reset)],
+     "informationList"=>["site"=>$config['site_id'],"page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>$info['type']=="info"?"1,2,3,5,6,7":"4","fields"=>"*","reset"=>intval($reset)],
      "currentPage"=>["name"=>"infoList","type"=>$zxtype,"page"=>$page,"page_size"=>$info['page']['page_size'],"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
