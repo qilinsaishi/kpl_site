@@ -128,7 +128,7 @@
                       <li class="col-lg-6 col-12">
                           <div class="n_r">
                               <span>视频</span>
-                              <div class="s_j"><?php echo date("Y-m-d",strtotime($value['site_time'])+8*3600);?></div>
+                              <div class="s_j"><?php echo date("Y-m-d",strtotime($value['site_time']));?></div>
                               <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                           </div>
                       </li><?php }}else{ ?>
@@ -154,7 +154,7 @@
                 foreach($return["informationList"]['data'] as  $info)
                 {?>
                     <li>
-                        <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time'])+8*3600);?></div>
+                        <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time']));?></div>
                         <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                     </li>
                 <?php }?>

@@ -137,7 +137,7 @@ if(substr($return['totalTeamInfo']['data']['description'],0,1)=='"' && substr($r
                             {
                                 foreach($connectedInformationList as $key => $value) {?>
                                     <li>
-                                    <div class="s_j"><?php echo date("Y-m-d",strtotime($value['site_time'])+8*3600);?></div>
+                                    <div class="s_j"><?php echo date("Y-m-d",strtotime($value['site_time']));?></div>
                                     <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                                     </li>
                                 <?php }}else{ ?>
@@ -207,7 +207,7 @@ if(substr($return['totalTeamInfo']['data']['description'],0,1)=='"' && substr($r
                             foreach($return["informationList"]['data'] as  $info)
                             { if($i>6){?>
                                 <li>
-                                    <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time'])+8*3600);?></div>
+                                    <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time']));?></div>
                                     <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                                 </li>
                             <?php }$i++;}?>
