@@ -2,18 +2,17 @@
  <?php
  require_once "function/init.php";
  $data = [
-     //"matchList"=>["page"=>1,"page_size"=>9],
      "totalTeamList"=>["page"=>1,"page_size"=>15,"game"=>$config['game'],"source"=>"scoregg","rand"=>1,"fields"=>'team_id,team_name,logo',"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>3,"source"=>"scoregg","fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4],
+     "straList"=>["dataType"=>"informationList","site"=>$config['site_id'],"page"=>1,"page_size"=>8,"type"=>4,"fields"=>"id,title,game,site_time"],
      "heroList"=>["dataType"=>"kplHeroList","page"=>1,"page_size"=>1000,"cacheWith"=>"currentPage","fields"=>"hero_id,hero_name,logo,type"],
      "currentPage"=>["name"=>"heroList","site_id"=>$config['site_id']]
  ];
  foreach($config['information_type_map'] as $type => $mapInfo)
  {
-     $data["informationList_".$type] =  ["dataType"=>"informationList","page"=>1,"page_size"=>6,"type"=>$type];
+     $data["informationList_".$type] =  ["site"=>$config['site_id'],"dataType"=>"informationList","page"=>1,"page_size"=>6,"type"=>$type,"fields"=>"id,title,site_time,create_time"];
  }
  $return = curl_post($config['api_get'],json_encode($data),1);
  ?>
@@ -173,7 +172,7 @@
                               <?php }else{?>
                                   <li>
                                   <span><?php echo $mapInfo['sub_name'];?></span>
-                                  <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                                  <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time']));?></div>
                                   <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                                   </li><?php }$i++;}?>
 
@@ -199,7 +198,7 @@
                 <?php  foreach($return['straList']['data'] as $type => $info){?>
                     <li>
                         <span>视频</span>
-                        <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                        <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time'])+8*3600);?></div>
                         <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                     </li>
                 <?php }?>

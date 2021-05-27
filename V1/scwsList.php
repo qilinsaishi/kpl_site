@@ -12,11 +12,10 @@
  $zxtype=($info['type']!="info")?"/strategylist":"/newslist";
  $data = [
      "scwsKeyword"=>[$ids],
-     "informationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],/*"type"=>$info['type']=="info"?"1,2,3,5":"4",*/"fields"=>"*"],
+     "informationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"site"=>$config['site_id'],"page"=>$page,"page_size"=>$info['page']['page_size'],"fields"=>"id,game,title,content,create_time,logo"],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>"scoregg","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     //"informationList"=>["game"=>$config['game'],"page"=>$page,"page_size"=>$info['page']['page_size'],"type"=>$info['type']=="info"?"1,2,3,5":"4","fields"=>"*"],
      "currentPage"=>["name"=>"infoList","type"=>$zxtype,"page"=>$page,"page_size"=>$info['page']['page_size'],"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
@@ -67,13 +66,13 @@
                 <?php foreach($return['informationList']['data'] as $key => $value) {?>
                     <li class="row">
                         <div class="col-lg-2 col-5">
-                            <div class="t_p"><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $info['content']['id'];?>"><img src="<?php echo $value['content']['logo'];?>"></a></div>
+                            <div class="t_p"><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $info['content']['id'];?>"><img src="<?php echo $value['logo'];?>"></a></div>
                         </div>
                         <div class="col-lg-10 col-7">
                             <div class="w_z">
-                                <h3><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['content']['id'];?>"><?php echo $value['content']['title'];?></a></h3>
-                                <p><?php echo strip_tags(html_entity_decode($value['content']['content']));?></p>
-                                <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['content']['id'];?>" class="m_r">read more +</a>
+                                <h3><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></h3>
+                                <p><?php echo strip_tags(html_entity_decode($value['content']));?></p>
+                                <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>" class="m_r">read more +</a>
                             </div>
                         </div>
                     </li>

@@ -8,12 +8,12 @@
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["site_id"=>$config['site_id'],"page"=>1,"page_size"=>6],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>5,"source"=>"scoregg","fields"=>'player_id,position,player_name,logo,team_id',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4],
+     "straList"=>["dataType"=>"informationList","page"=>1,"page_size"=>8,"type"=>4,"site"=>$config['site_id'],"fields"=>"id,game,title,logo,type,site_time,create_time"],
      "currentPage"=>["name"=>"index","site_id"=>$config['site_id'],"cache_time"=>86400*7]
  ];
  foreach($config['information_type_map'] as $type => $mapInfo)
  {
-     $data["informationList_".$type] =  ["dataType"=>"informationList","page"=>1,"page_size"=>6,"type"=>$type];
+     $data["informationList_".$type] =  ["dataType"=>"informationList","page"=>1,"page_size"=>6,"type"=>$type,"site"=>$config['site_id'],"fields"=>"id,game,title,logo,type,site_time,create_time"];
  }
  $return = curl_post($config['api_get'],json_encode($data),1);
  ?>
@@ -170,7 +170,7 @@
                         <?php }else{?>
                             <li>
                             <span><?php echo $mapInfo['sub_name'];?></span>
-                            <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                            <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time']));?></div>
                             <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                         </li><?php }$i++;}?>
 
@@ -196,7 +196,7 @@
                 <?php  foreach($return['straList']['data'] as $type => $info){?>
                     <li>
                         <span>视频</span>
-                        <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                        <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time']));?></div>
                         <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                     </li>
                 <?php }?>

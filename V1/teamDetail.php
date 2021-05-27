@@ -13,8 +13,8 @@ $data = [
     "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
     "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
     "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-    "keywordMapList"=>["fields"=>"content_id","source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>6,"fields"=>"id,title,create_time"]],
-    "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>14,"type"=>"1,2,3,5"],
+    "keywordMapList"=>["fields"=>"content_id","site"=>$config['site_id'],"source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>6,"fields"=>"id,title,site_time"]],
+    "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>14,"type"=>"1,2,3,5,6,7"],
     "currentPage"=>["name"=>"team","id"=>$team_id,"site_id"=>$config['site_id']]
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
@@ -31,7 +31,7 @@ $return['totalTeamInfo']['data']['race_stat'] = json_decode($return['totalTeamIn
 if(count($return["keywordMapList"]["data"])==0)
 {
     $data2 = [
-        "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5"],
+        "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5,6,7"],
     ];
     $return2 = curl_post($config['api_get'],json_encode($data2),1);
     $connectedInformationList = $return2["informationList"]["data"];
@@ -52,7 +52,7 @@ if(substr($return['totalTeamInfo']['data']['description'],0,1)=='"' && substr($r
     <meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
     <meta name="format-detection" content="telephone=no">
     <title><?php echo $return['totalTeamInfo']['data']['team_name'];?>电子竞技俱乐部_<?php echo $return['totalTeamInfo']['data']['team_name'];?>战队_<?php echo $return['totalTeamInfo']['data']['team_name'];?>电竞俱乐部成员介绍-<?php echo $config['site_name'];?></title>
-    <meta name="description" content="<?php echo html_entity_decode(strip_tags($return['totalTeamInfo']['data']['description']));?>">
+    <meta name="description" content="<?php echo strip_tags($return['totalTeamInfo']['data']['description']);?>">
     <meta name=”Keywords” Content=”<?php echo $return['totalTeamInfo']['data']['team_name'];?>电子竞技俱乐部,<?php
     if(substr_count($return['totalTeamInfo']['data']['team_name'],"战队")==0){echo $return['totalTeamInfo']['data']['team_name'].'战队,';}?><?php echo $return['totalTeamInfo']['data']['team_name'];?>电竞俱乐部成员介绍″>
     <?php renderHeaderJsCss($config);?>
@@ -137,7 +137,7 @@ if(substr($return['totalTeamInfo']['data']['description'],0,1)=='"' && substr($r
                             {
                                 foreach($connectedInformationList as $key => $value) {?>
                                     <li>
-                                    <div class="s_j"><?php echo substr($value['create_time'],0,10);?></div>
+                                    <div class="s_j"><?php echo date("Y-m-d",strtotime($value['site_time']));?></div>
                                     <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                                     </li>
                                 <?php }}else{ ?>
@@ -207,7 +207,7 @@ if(substr($return['totalTeamInfo']['data']['description'],0,1)=='"' && substr($r
                             foreach($return["informationList"]['data'] as  $info)
                             { if($i>6){?>
                                 <li>
-                                    <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                                    <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time']));?></div>
                                     <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                                 </li>
                             <?php }$i++;}?>

@@ -17,7 +17,7 @@
      "currentPage"=>["name"=>"info","id"=>$id,"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
- if(!isset($return["information"]['data']['id']))
+ if(!isset($return["information"]['data']['id'])  || $return["information"]['data']['game'] != $config['game'])
  {
      render404($config);
  }
@@ -57,9 +57,9 @@
  $ids = array_column($return["information"]['data']['scws_list'],"keyword_id");
  $ids = count($ids)>0?implode(",",$ids):"0";
  $data2 = [
-     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>$return['information']['data']['type']!=4?"1,2,3,5":"4","fields"=>"*","expect_id"=>$id],
-     "infoList"=>["dataType"=>"informationList","game"=>$config['game'],"page"=>1,"page_size"=>6,
-         "type"=>$return['information']['data']['type']!=4?"4":"1,2,3,5","fields"=>"id,title","expect_id"=>$id],
+     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>$return['information']['data']['type']!=4?"1,2,3,5,6,7":"4","fields"=>"id,title,site_time,content","expect_id"=>$id],
+     "infoList"=>["dataType"=>"informationList","site"=>$config['site_id'],"page"=>1,"page_size"=>6,
+         "type"=>$return['information']['data']['type']!=4?"4":"1,2,3,5,6,7","fields"=>"id,title","expect_id"=>$id],
  ];
  if(count($anotherList)>0)
  {
@@ -154,7 +154,7 @@
           <div class="xw_xq">
             <div class="b_t"><?php echo $return['information']['data']['title'];?></div>
               <div class="author">作者：<?php echo $return['information']['data']['author'];?></div>
-              <div class="c_time">发布时间：<?php echo date("Y-m-d H:i:s",strtotime($return['information']['data']['create_time'])+8*3600);?> </div>
+              <div class="c_time">发布时间：<?php echo date("Y-m-d H:i:s",strtotime($return['information']['data']['site_time']));?> </div>
             <div class="n_r"><br>
                 <?php echo html_entity_decode($return['information']['data']['content']);?></div>
             <div class="b_q">
@@ -184,7 +184,7 @@
             <ul>
                 <?php foreach($return2['ConnectInformationList']['data'] as $info){?>
                     <li class="list-item">
-                        <a href="<?php echo $config['site_url']."/newsdetail/".$info['content']['id']?>" title="<?php echo $info['content']['title'];?>" target="_blank"><?php echo $info['content']['title'];?></a>
+                        <a href="<?php echo $config['site_url']."/newsdetail/".$info['id']?>" title="<?php echo $info['title'];?>" target="_blank"><?php echo $info['title'];?></a>
                     </li>
                 <?php }?>
             </ul>

@@ -12,8 +12,8 @@
      "totalPlayerInfo"=>[$player_id,"reset"=>intval($reset)],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-     "informationList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5"],
-     "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"player","source_id"=>$player_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,create_time"]],
+     "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5,6,7"],
+     "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"site"=>$config['site_id'],"source_type"=>"player","source_id"=>$player_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,create_time"]],
      "currentPage"=>["name"=>"player","id"=>$player_id,"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
@@ -29,7 +29,7 @@
  if(count($return["keywordMapList"]["data"])==0)
  {
      $data2 = [
-         "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"team","source_id"=>$return['totalPlayerInfo']['data']['teamInfo']['team_id'],"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,create_time"]],
+         "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"site"=>$config['site_id'],"source_type"=>"team","source_id"=>$return['totalPlayerInfo']['data']['teamInfo']['team_id'],"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,site_time"]],
      ];
      $return2 = curl_post($config['api_get'],json_encode($data2),1);
      $connectedInformationList = $return2["keywordMapList"]["data"];
@@ -128,7 +128,7 @@
                       <li class="col-lg-6 col-12">
                           <div class="n_r">
                               <span>视频</span>
-                              <div class="s_j"><?php echo substr($value['create_time'],0,10);?></div>
+                              <div class="s_j"><?php echo date("Y-m-d",strtotime($value['site_time']));?></div>
                               <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                           </div>
                       </li><?php }}else{ ?>
@@ -154,7 +154,7 @@
                 foreach($return["informationList"]['data'] as  $info)
                 {?>
                     <li>
-                        <div class="s_j"><?php echo substr($info['create_time'],0,10);?></div>
+                        <div class="s_j"><?php echo date("Y-m-d",strtotime($info['site_time']));?></div>
                         <a href="<?php echo $config['site_url'];?>/newsdetail/<?php echo $info['id'];?>"><?php echo $info['title'];?></a>
                     </li>
                 <?php }?>

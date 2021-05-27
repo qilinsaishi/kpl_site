@@ -13,7 +13,7 @@
      "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>3,"source"=>"scoregg","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"source_type"=>"hero","source_id"=>$hero_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>13,"type"=>4,"fields"=>"id,title,logo,type,create_time"]],
+     "keywordMapList"=>["fields"=>"content_id","site"=>$config['site_id'],"game"=>$config['game'],"source_type"=>"hero","source_id"=>$hero_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>13,"type"=>4,"fields"=>"id,title,logo,type,site_time"]],
      "currentPage"=>["name"=>"hero","id"=>$hero_id,"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
@@ -241,7 +241,7 @@
                 foreach($connectedInformationList as $key => $value) {
                     if($i>6){?>
                         <li>
-                            <div class="s_j"><?php echo substr($value['create_time'],0,10);?></div>
+                            <div class="s_j"><?php echo substr($value['site_time'],0,10);?></div>
                             <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                         </li>
                     <?php }$i++;}?>
