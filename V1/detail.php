@@ -61,7 +61,7 @@
  $ids = array_column($return["information"]['data']['scws_list'],"keyword_id");
  $ids = count($ids)>0?implode(",",$ids):"0";
  $data2 = [
-     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>$return['information']['data']['type']!=4?"1,2,3,5,6,7":"4","fields"=>"id,title,site_time,content","expect_id"=>$id],
+     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>$return['information']['data']['type']!=4?"1,2,3,5,6,7":"4","fields"=>"id,title,site_time,create_time,content","expect_id"=>$id],
      "infoList"=>["dataType"=>"informationList","site"=>$config['site_id'],"page"=>1,"page_size"=>6,
          "type"=>$return['information']['data']['type']!=4?"4":"1,2,3,5,6,7","fields"=>"id,title","expect_id"=>$id],
  ];
@@ -158,7 +158,7 @@
           <div class="xw_xq">
             <div class="b_t"><?php echo $return['information']['data']['title'];?></div>
               <div class="author">作者：<?php echo $return['information']['data']['author'];?></div>
-              <div class="c_time">发布时间：<?php echo date("Y-m-d H:i:s",strtotime($return['information']['data']['site_time']));?> </div>
+              <div class="c_time">发布时间：<?php echo date("Y-m-d H:i:s",strtotime($return['information']['data']['create_time']));?> </div>
             <div class="n_r"><br>
                 <?php echo html_entity_decode($return['information']['data']['content']);?></div>
             <div class="b_q">

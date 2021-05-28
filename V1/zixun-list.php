@@ -82,7 +82,7 @@
                                 <h3><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a></h3>
                                 <p><?php echo strip_tags(html_entity_decode($value['content'])); ?></p>
                                 <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>" class="m_r">read more +</a>
-								<span><?php echo date("Y-m-d",strtotime($value['site_time']));?></span>
+								<span><?php echo date("Y-m-d",strtotime($value['create_time']));?></span>
                             </div>
                         </div>
                     </li>
