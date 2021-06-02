@@ -165,7 +165,9 @@
                         </div>
                         <div class="w_z">
                             <?php foreach($return['kplHero']['data']['hero_tips'][$type] as $key => $tip_hero){?>
-                                <p <?php if($key==0){?>class="dk"<?php }?>><?php echo $tip_hero['desc']?></p>
+                              <!-- <p <?php if($key==0){?>class="dk branddesc"<?php }else{?>class="branddesc"<?php }?>><?php echo $tip_hero['desc']?></p> -->
+                              <p <?php if($key==0){?>class="dk"<?php }?>><?php echo $tip_hero['desc']?>
+                            </p>
                             <?php }?>
                         </div>
                     </div>
@@ -267,26 +269,6 @@
     <?php renderCertification();?>
 </div>
 <div class="fh_top"><img src="<?php echo $config['site_url']?>/images/fh_top.png"></div>
-<script>
-  //字体溢出隐藏
-var str = $(".dk").text();
-    
-    var tempt = str;
-    coverup();
-    function coverup() {
-        if (str.length > 90) {
-            $(".dk").text(tempt.slice(0, 90) + "...");
-        }
-        var readmore = "<a onclick='showmore()'  style='color: orange;'>查看更多↓</a>"
-        $(".dk").append(readmore);
-    }
- 
-    function showmore() {
-        $(".dk").text(str);
-        var readmore = "<a onclick='coverup()'  style='color: orange;'>收起↑</a>"
-        $(".dk").append(readmore);
-    }
-</script>
 <script>
   //图片自适应大小
 function setImgWidthHeight() {

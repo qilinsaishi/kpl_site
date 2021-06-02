@@ -11,9 +11,9 @@ $(document).ready(function(){
   jQuery(".jn_js").slide({mainCell:".bd",delayTime:0,});
   jQuery(".yx_gx").slide({mainCell:".bd",delayTime:0,});
   $(".yx_gx .t_x ul li").mouseenter(function(){
-    var index=$(".yx_gx .t_x ul li").index(this);
-    $(this).addClass("on").siblings().removeClass("on");
-    $(".yx_gx .w_z p").eq(index).addClass("dk").siblings().removeClass("dk");
+    // var index=$(".yx_gx .t_x ul li").index(this);
+    // $(this).addClass("on").siblings().removeClass("on");
+    // $(".yx_gx .w_z p").eq(index).addClass("dk").siblings().removeClass("dk");
   })
 });
 
