@@ -16,6 +16,7 @@
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>"scoregg","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
+     "defaultConfig"=>["keys"=>["default_information_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "currentPage"=>["name"=>"infoList","type"=>$zxtype,"page"=>$page,"page_size"=>$info['page']['page_size'],"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
@@ -66,7 +67,9 @@
                 <?php foreach($return['informationList']['data'] as $key => $value) {?>
                     <li class="row">
                         <div class="col-lg-2 col-5">
-                            <div class="t_p"><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $info['content']['id'];?>"><img src="<?php echo $value['logo'];?>"></a></div>
+                            <div class="t_p"><a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $info['content']['id'];?>">
+                                    <img data-original="<?php echo $value['logo'];?>" src="<?php echo $return['defaultConfig']['data']['default_information_img']['value'];?>" alt="<?php echo $value['title'];?>" class="imgauto">
+                                </a></div>
                         </div>
                         <div class="col-lg-10 col-7">
                             <div class="w_z">
