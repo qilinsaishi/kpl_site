@@ -70,15 +70,7 @@
      $data2["anotherKeyword"] = ["dataType"=>"anotherKeyword","ids"=>$anotherList,"fields"=>"id,word,url","pageSize"=>count($anotherList)];
  }
  $return2 = curl_post($config['api_get'],json_encode($data2),1);
- $i = 1;$count = 1;
- foreach($keywordsList as $word => $wordInfo)
- {
-     if($i<=3 && strlen($word)>=3)
-     {
-         $return['information']['data']['content'] = str_replace_limit($word,'<a href="'.$wordInfo['url'].'" target="_blank">'.$word.'</a>',$return['information']['data']['content'],1);
-         $i++;
-     }
- }
+
  $author_found = 0;
  foreach($config['author'] as $author)
  {
@@ -119,6 +111,16 @@
  foreach($replace_list as $key => $txt)
  {
      $return['information']['data']['content'] = str_replace($txt,"",$return['information']['data']['content']);
+ }
+ $i = 1;$count = 1;
+ foreach($keywordsList as $word => $wordInfo)
+ {
+     if($i<=3 && strlen($word)>=3)
+     {
+         echo $word;
+         $return['information']['data']['content'] = str_replace_limit($word,'<a href="'.$wordInfo['url'].'" target="_blank">'.$word.'</a>',$return['information']['data']['content'],1);
+         $i++;
+     }
  }
  ?>
 <head>
