@@ -12,7 +12,7 @@
  $zxtype=($info['type']!="info")?"/strategylist":"/newslist";
  $data = [
      "scwsKeyword"=>[$ids],
-     "informationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"site"=>$config['site_id'],"page"=>$page,"page_size"=>$info['page']['page_size'],"fields"=>"id,game,title,content,create_time,logo"],
+     "informationList"=>["dataType"=>"scwsInformaitonList","site"=>$config['site_id'],"ids"=>$ids,"game"=>$config['game'],"site"=>$config['site_id'],"page"=>$page,"page_size"=>$info['page']['page_size'],"fields"=>"id,game,title,content,create_time,logo"],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "totalPlayerList"=>["game"=>$config['game'],"page"=>1,"page_size"=>6,"source"=>"scoregg","fields"=>'player_id,player_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
