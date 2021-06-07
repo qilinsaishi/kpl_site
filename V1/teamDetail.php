@@ -107,7 +107,7 @@ if(substr($return['totalTeamInfo']['data']['description'],0,1)=='"' && substr($r
                         <div class="n_r"><a href="<?php echo $config['site_url']; ?>/playerdetail/<?php echo $playerInfo['player_id'];?>" title="<?php echo $playerInfo['player_name']?>" target="_blank">
                                 <div class="t_p">
                                     <?php if(isset($return['defaultConfig']['data']['default_player_img'])){?>
-                                        <img lazyload="true" data-original="<?php echo $return['defaultConfig']['data']['default_player_img']['value'];?>" src="<?php echo $playerInfo['logo'];?>" title="<?php echo $playerInfo['player_name'];?>" />
+                                        <img lazyload="true" src="<?php echo $return['defaultConfig']['data']['default_player_img']['value'];?>" data-original="<?php echo $playerInfo['logo'];?>" title="<?php echo $playerInfo['player_name'];?>" />
                                     <?php }else{?>
                                         <img src="<?php echo $playerInfo['logo'];?>" title="<?php echo $playerInfo['player_name'];?>" />
                                     <?php }?>
