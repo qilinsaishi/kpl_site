@@ -38,7 +38,6 @@
  {
      $connectedInformationList = $return["keywordMapList"]["data"];
  }
-
  $data3 = [
      "teamMateList"=>["dataType"=>"totalPlayerList","game"=>$config['game'],"page"=>1,"page_size"=>100,"fields"=>'player_id,player_name,logo,position',"team_id"=>$return['totalPlayerInfo']['data']['team_id']],
  ];
@@ -128,7 +127,7 @@
                       <li class="col-lg-6 col-12">
                           <div class="n_r">
                               <span>视频</span>
-                              <div class="s_j"><?php echo date("Y-m-d",strtotime($value['site_time']));?></div>
+                              <div class="s_j"><?php echo date("Y-m-d",strtotime($value['create_time']));?></div>
                               <a href="<?php echo $config['site_url']; ?>/newsdetail/<?php echo $value['id'];?>"><?php echo $value['title'];?></a>
                           </div>
                       </li><?php }}else{ ?>
