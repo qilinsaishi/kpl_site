@@ -49,7 +49,7 @@
       <?php
       foreach($return["slideImage"]['data'] as $type => $pic)
       {?>
-          <div class="swiper-slide" style="background:url(<?php echo $pic['logo'];?>) no-repeat center / cover;"></div>
+          <a href="<?php echo $pic['url'];?>" class="swiper-slide" style="background:url(<?php echo $pic['logo'];?>) no-repeat center / cover;" target="_blank"></a>
       <?php }?>
   </div>
   <div class="swiper-pagination"></div>
