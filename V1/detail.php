@@ -117,7 +117,6 @@
  {
      if($i<=3 && strlen($word)>=3)
      {
-         echo $word;
          $return['information']['data']['content'] = str_replace_limit($word,'<a href="'.$wordInfo['url'].'" target="_blank">'.$word.'</a>',$return['information']['data']['content'],1);
          $i++;
      }
