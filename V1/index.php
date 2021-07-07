@@ -26,7 +26,7 @@
 <meta name="format-detection" content="telephone=no">
     <title><?php echo $config['site_name'];?>_<?php echo $config['game_name'];?>电子竞技赛事资讯分析网</title>
     <meta name="description" content="<?php echo $config['site_description'];?>">
-<meta name=”Keywords” Content=”<?php echo $config['site_name'];?>″>
+<meta name="Keywords" Content="<?php echo $config['site_name'];?>">
     <?php renderHeaderJsCss($config);?>
 </head>
 

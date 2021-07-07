@@ -53,8 +53,8 @@ if(substr($return['totalTeamInfo']['data']['description'],0,1)=='"' && substr($r
     <meta name="format-detection" content="telephone=no">
     <title><?php echo $return['totalTeamInfo']['data']['team_name'];?>电子竞技俱乐部_<?php echo $return['totalTeamInfo']['data']['team_name'];?>战队_<?php echo $return['totalTeamInfo']['data']['team_name'];?>电竞俱乐部成员介绍-<?php echo $config['site_name'];?></title>
     <meta name="description" content="<?php echo strip_tags($return['totalTeamInfo']['data']['description']);?>">
-    <meta name=”Keywords” Content=”<?php echo $return['totalTeamInfo']['data']['team_name'];?>电子竞技俱乐部,<?php
-    if(substr_count($return['totalTeamInfo']['data']['team_name'],"战队")==0){echo $return['totalTeamInfo']['data']['team_name'].'战队,';}?><?php echo $return['totalTeamInfo']['data']['team_name'];?>电竞俱乐部成员介绍″>
+    <meta name="Keywords" Content="<?php echo $return['totalTeamInfo']['data']['team_name'];?>电子竞技俱乐部,<?php
+    if(substr_count($return['totalTeamInfo']['data']['team_name'],"战队")==0){echo $return['totalTeamInfo']['data']['team_name'].'战队,';}?><?php echo $return['totalTeamInfo']['data']['team_name'];?>电竞俱乐部成员介绍">
     <?php renderHeaderJsCss($config);?>
 </head>
 

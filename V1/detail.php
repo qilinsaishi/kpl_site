@@ -129,7 +129,6 @@
 <meta name="viewport" content="width=640, user-scalable=no, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
     <title><?php echo $return['information']['data']['title'];?>_<?php echo $config['game_name'];?>资讯-<?php echo $config['site_name'];?></title>
-    <meta name=”Keywords” Content=”<?php echo implode(",",array_keys($keywordsList));?>″>
     <?php renderHeaderJsCss($config);?>
 </head>
 

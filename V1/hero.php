@@ -33,7 +33,7 @@
     <?php $desctiption = mb_str_split($return['kplHero']['data']['description'],200);
     if(strlen($desctiption)<10){$desctiption = "";}?>
     <meta name="description" content="<?php echo $desctiption;?>">
-    <meta name=”Keywords” Content=”<?php echo $return['kplHero']['data']['hero_name'];?>,<?php echo $config['game_name'];?><?php echo $return['kplHero']['data']['hero_name'];?>″>
+    <meta name="Keywords" Content="<?php echo $return['kplHero']['data']['hero_name'];?>,<?php echo $config['game_name'];?><?php echo $return['kplHero']['data']['hero_name'];?>">
     <?php renderHeaderJsCss($config);?>
 </head>
 
