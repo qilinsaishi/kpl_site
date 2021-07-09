@@ -13,7 +13,7 @@
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","rand"=>1,"cacheWith"=>"currentPage","fields"=>'team_id,team_name,logo',"cache_time"=>86400*7],
      "totalPlayerList"=>["page"=>1,"page_size"=>6,"game"=>$config['game'],"source"=>"scoregg","rand"=>1,"cacheWith"=>"currentPage","fields"=>'player_id,player_name,logo',"cache_time"=>86400*7],
-     "defaultConfig"=>["keys"=>["contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
+     "defaultConfig"=>["keys"=>["default_information_img","contact","sitemap"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "currentPage"=>["name"=>"info","id"=>$id,"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
@@ -119,6 +119,18 @@
      {
          $return['information']['data']['content'] = str_replace_limit($word,'<a href="'.$wordInfo['url'].'" target="_blank">'.$word.'</a>',$return['information']['data']['content'],1);
          $i++;
+     }
+ }
+ preg_match_all('/(src)=("[^"]*")/i', $return['information']['data']['content'], $matches);
+ foreach($matches['2'] as $img)
+ {
+     if(!strpos($img,'qilingsaishi') && !strpos($img,'mxbs'))
+     {
+         $return['information']['data']['content'] = str_replace(trim($img,'"'),$return['defaultConfig']['data']['default_information_img']['value'], $return['information']['data']['content']);
+     }
+     if($img='""')
+     {
+         $return['information']['data']['content'] = str_replace('src=""','src="'.$return['defaultConfig']['data']['default_information_img']['value'].'"', $return['information']['data']['content']);
      }
  }
  ?>
