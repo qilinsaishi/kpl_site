@@ -12,7 +12,7 @@
      "totalPlayerInfo"=>[$player_id,"reset"=>intval($reset)],
      "totalTeamList"=>["page"=>1,"page_size"=>12,"game"=>$config['game'],"source"=>"scoregg","fields"=>'team_id,team_name,logo,team_history',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
-     "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5,6,7"],
+     "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>"1,3,5,6,7"],
      "keywordMapList"=>["fields"=>"content_id","game"=>$config['game'],"site"=>$config['site_id'],"source_type"=>"player","source_id"=>$player_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>8,"fields"=>"id,title,create_time"]],
      "currentPage"=>["name"=>"player","id"=>$player_id,"site_id"=>$config['site_id']]
  ];

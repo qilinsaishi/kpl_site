@@ -61,9 +61,9 @@
  $ids = array_column($return["information"]['data']['scws_list'],"keyword_id");
  $ids = count($ids)>0?implode(",",$ids):"0";
  $data2 = [
-     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>$return['information']['data']['type']!=4?"1,2,3,5,6,7":"4","fields"=>"id,title,site_time,create_time,content","expect_id"=>$id],
+     "ConnectInformationList"=>["dataType"=>"scwsInformaitonList","ids"=>$ids,"game"=>$config['game'],"site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>$return['information']['data']['type']!=4?"1,3,5,6,7":"4","fields"=>"id,title,site_time,create_time,content","expect_id"=>$id],
      "infoList"=>["dataType"=>"informationList","site"=>$config['site_id'],"page"=>1,"page_size"=>6,
-         "type"=>$return['information']['data']['type']!=4?"4":"1,2,3,5,6,7","fields"=>"id,title","expect_id"=>$id],
+         "type"=>$return['information']['data']['type']!=4?"4":"1,3,5,6,7","fields"=>"id,title","expect_id"=>$id],
  ];
  if(count($anotherList)>0)
  {

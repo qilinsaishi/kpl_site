@@ -14,7 +14,7 @@ $data = [
     "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
     "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
     "keywordMapList"=>["fields"=>"content_id","site"=>$config['site_id'],"source_type"=>"team","source_id"=>$team_id,"page_size"=>100,"content_type"=>"information","list"=>["page_size"=>6,"fields"=>"id,title,site_time"]],
-    "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>14,"type"=>"1,2,3,5,6,7"],
+    "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>14,"type"=>"1,3,5,6,7"],
     "currentPage"=>["name"=>"team","id"=>$team_id,"site_id"=>$config['site_id']]
 ];
 $return = curl_post($config['api_get'],json_encode($data),1);
@@ -31,7 +31,7 @@ $return['totalTeamInfo']['data']['race_stat'] = json_decode($return['totalTeamIn
 if(count($return["keywordMapList"]["data"])==0)
 {
     $data2 = [
-        "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5,6,7"],
+        "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>"1,3,5,6,7"],
     ];
     $return2 = curl_post($config['api_get'],json_encode($data2),1);
     $connectedInformationList = $return2["informationList"]["data"];

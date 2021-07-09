@@ -12,7 +12,7 @@
      "defaultConfig"=>["keys"=>["contact","sitemap","default_player_img","default_player_img"],"fields"=>["name","key","value"],"site_id"=>$config['site_id']],
      "links"=>["page"=>1,"page_size"=>6,"site_id"=>$config['site_id']],
      "teamList"=>["dataType"=>"totalTeamList","game"=>$config['game'],"page"=>1,"page_size"=>12,"source"=>"scoregg","fields"=>'team_id,team_name,logo',"rand"=>1,"cacheWith"=>"currentPage","cache_time"=>86400*7],
-     "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>"1,2,3,5,6,7"],
+     "informationList"=>["site"=>$config['site_id'],"page"=>1,"page_size"=>6,"type"=>"1,3,5,6,7"],
      "currentPage"=>["name"=>"playerList","page"=>$page,"page_size"=>$info['page']['page_size'],"site_id"=>$config['site_id']]
  ];
  $return = curl_post($config['api_get'],json_encode($data),1);
