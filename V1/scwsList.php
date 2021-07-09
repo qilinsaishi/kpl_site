@@ -4,8 +4,14 @@
  require_once "function/init.php";
  $ids = $_GET['ids']??"666";
  $info['page']['page_size'] = 18;
+ $idList = explode("/",$ids);
+ $ids = $idList['0'];
  $info['type'] = $_GET['type']??"info";
  $page = $_GET['page']??1;
+ if(count($idList)>1)
+ {
+     renderScws301($config,$ids."/".$page);
+ }
  if($page==''){
      $page=1;
  }

@@ -183,6 +183,12 @@
 		exit;
 		return true;
 	}
+    function renderScws301($config,$redirect)
+    {
+        header('location:'.$config['site_url'] . '/scws/' . $redirect);
+        exit;
+        return true;
+    }
     function  replace_html_tag( $string ,  $tagname  = "<img><br>"){
         $string = html_entity_decode($string);
         $string = strip_tags($string,$tagname); // 保留 <span>标签
